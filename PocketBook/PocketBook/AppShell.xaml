@@ -9,22 +9,22 @@
     <TabBar>
         <ShellContent
             Title="My Library"
-            Icon="books_vertical.svg"
+            Icon="books_vertical"
             ContentTemplate="{DataTemplate local:LibraryPage}"
             Route="LibraryPage" />
         <ShellContent
             Title="My Lists"
-            Icon="list_bullet.svg"
+            Icon="list_bullet"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="ListsPage" />
         <ShellContent
             Title="My Readings"
-            Icon="bookmark.svg"
+            Icon="bookmark"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="ReadingsPage" />
         <ShellContent
             Title="Search"
-            Icon="magnifying_glass.svg"
+            Icon="magnifying_glass"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="SearchPage" />
     </TabBar>
