@@ -1,6 +1,4 @@
-using AndroidX.CardView.Widget;
-
-namespace PocketBook;
+namespace PocketBook.Components;
 
 public partial class ListItem : ContentView
 {
