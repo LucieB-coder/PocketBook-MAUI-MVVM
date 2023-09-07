@@ -67,12 +67,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Components\AuthorSection.xaml.cs">
+	    <DependentUpon>AuthorSection.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="MainPage - Copier.xaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Components\AuthorSection.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\AllBooksPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -85,10 +91,6 @@
 	  <MauiXaml Update="MainPage - Copier.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Resources\Styles\NewFolder\" />
 	</ItemGroup>
 
 </Project>

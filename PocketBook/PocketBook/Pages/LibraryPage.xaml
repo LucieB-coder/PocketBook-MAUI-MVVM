@@ -8,9 +8,9 @@
     
     <ScrollView>
         <VerticalStackLayout>
-            <Grid ColumnDefinitions="*,*" Style="{StaticResource header}">
+            <Grid ColumnDefinitions="*,*" Style="{StaticResource header}" >
                 <Label Text="Modifier" Grid.Column="0" Style="{StaticResource headerText}"/>
-                <Image Source="plus" Grid.Column="2" HorizontalOptions="End">
+                <Image Source="plus" Grid.Column="1" HorizontalOptions="End" HeightRequest="30">
                     <Image.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}" />
                     </Image.Behaviors>

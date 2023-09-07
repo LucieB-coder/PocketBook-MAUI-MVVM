@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:PocketBook.Components"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="PocketBook.Pages.AllBooksPage"
              Title="AllBooksPage">
     <ScrollView>
         <VerticalStackLayout>
-            <Grid ColumnDefinitions="*,*" Style="{StaticResource header}">
-                <ImageButton Source="chevron_right" Clicked="OnGoBack" HeightRequest="30">
-                    <ImageButton.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="Red" />
-                    </ImageButton.Behaviors>
-                </ImageButton>
-                <Label Text="Mes Livres" Grid.Column="1" Style="{StaticResource headerText}"/>
-                
+            <Grid ColumnDefinitions="*,*,*" Style="{StaticResource header}" >
+                <HorizontalStackLayout Grid.Column="0">
+                    <ImageButton Source="chevron_right" Rotation="180" Clicked="OnGoBack" HorizontalOptions="Start">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Red" />
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <Label Text="Mes livres" Grid.Column="1" Style="{StaticResource headerText}" FontSize="18"/>
+                </HorizontalStackLayout>
+                <Label Style="{StaticResource headerText}" TextColor="Black" FontSize="20" Text="Tous" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                <HorizontalStackLayout Grid.Column="2" HorizontalOptions="End" Spacing="15">
+                    <ImageButton Source="plus">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Red" />
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <HorizontalStackLayout Spacing="-10">
+                        <ImageButton Source="arrow_forward" Rotation="-90">
+                            <ImageButton.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="Red" />
+                            </ImageButton.Behaviors>
+                        </ImageButton>
+                        <Image Source="arrow_forward" Rotation=" 90">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="Red" />
+                            </Image.Behaviors>
+                        </Image>
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
             </Grid>
-          
+
+            <controls:AuthorSection/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
