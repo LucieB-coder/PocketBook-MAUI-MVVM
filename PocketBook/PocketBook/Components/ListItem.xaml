@@ -13,11 +13,12 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Grid.Column="3" HorizontalOptions="End">
                     <Label Text="{Binding NumberOfElements}" TextColor="Gray"/>
-                    <Image Source="chevron_right">
-                        <Image.Behaviors>
+                    <ImageButton Source="chevron_right" Clicked="OnAllClicked" HeightRequest="30">
+                        <ImageButton.Behaviors>
                             <toolkit:IconTintColorBehavior TintColor="Gray" />
-                        </Image.Behaviors>
-                    </Image>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+
                 </HorizontalStackLayout>
                 <BoxView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,7,0,0"/>
             </Grid>

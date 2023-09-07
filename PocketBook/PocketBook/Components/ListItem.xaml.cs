@@ -26,4 +26,9 @@ public partial class ListItem : ContentView
 	{
 		InitializeComponent();
     }
+
+    async void OnAllClicked(object sender, EventArgs args)
+    {
+        await Shell.Current.GoToAsync("//AllBooks", false);
+    }
 }

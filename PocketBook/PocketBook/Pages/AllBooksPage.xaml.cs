@@ -6,4 +6,9 @@ public partial class AllBooksPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    async void OnGoBack(object sender, EventArgs args)
+    {
+        await Shell.Current.GoToAsync("//Library");
+    }
 }

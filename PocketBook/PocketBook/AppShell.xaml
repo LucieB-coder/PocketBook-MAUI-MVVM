@@ -12,22 +12,22 @@
             Title="My Library"
             Icon="books_vertical"
             ContentTemplate="{DataTemplate local:LibraryPage}"
-            Route="LibraryPage" />
+            Route="Library" />
         <ShellContent
             Title="My Lists"
             Icon="list_bullet"
             ContentTemplate="{DataTemplate local:MainPage}"
-            Route="ListsPage" />
+            Route="Lists" />
         <ShellContent
             Title="My Readings"
             Icon="bookmark"
             ContentTemplate="{DataTemplate local:MainPage}"
-            Route="ReadingsPage" />
+            Route="Readings" />
         <ShellContent
             Title="Search"
             Icon="magnifying_glass"
             ContentTemplate="{DataTemplate local:MainPage}"
-            Route="SearchPage" />
+            Route="Search" />
     </TabBar>
     <ShellContent
         Title="AllBooks"
