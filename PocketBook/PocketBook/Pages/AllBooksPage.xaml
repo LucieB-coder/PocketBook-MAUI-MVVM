@@ -14,9 +14,9 @@
                             <toolkit:IconTintColorBehavior TintColor="Red" />
                         </ImageButton.Behaviors>
                     </ImageButton>
-                    <Label Text="Mes livres" Grid.Column="1" Style="{StaticResource headerText}" FontSize="18"/>
+                    <Label Text="Mes livres" Grid.Column="1" Style="{StaticResource headerText}" />
                 </HorizontalStackLayout>
-                <Label Style="{StaticResource headerText}" TextColor="Black" FontSize="20" Text="Tous" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                <Label Style="{StaticResource boldLabel}"  Text="Tous" Grid.Column="1" HorizontalTextAlignment="Center"/>
                 <HorizontalStackLayout Grid.Column="2" HorizontalOptions="End" Spacing="15">
                     <ImageButton Source="plus">
                         <ImageButton.Behaviors>
@@ -37,8 +37,10 @@
                     </HorizontalStackLayout>
                 </HorizontalStackLayout>
             </Grid>
-
-            <controls:AuthorSection/>
+            <VerticalStackLayout Spacing="10">
+                <controls:AuthorSection AuthorName="Alain Damasio"/>
+                <controls:AuthorSection AuthorName="J.K Rolling"/>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

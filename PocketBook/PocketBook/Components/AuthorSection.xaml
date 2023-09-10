@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PocketBook.Components.AuthorSection">
-    <StackLayout>
-        <Grid ColumnDefinitions="10,Auto,*,Auto" RowDefinitions="*,*" >
+             xmlns:controls="clr-namespace:PocketBook.Components"
+             x:Class="PocketBook.Components.AuthorSection"
+             x:Name="this">
+    <StackLayout Padding="0" BindingContext="{x:Reference this}">
+        <Grid ColumnDefinitions="10,Auto,*,Auto" RowDefinitions="*,*,*,*">
             <Label 
-            Text="Alain Damasio"
+            Text="{Binding AuthorName}"
             Style="{StaticResource authorName}"
             HorizontalOptions="Start" Grid.Column="1"/>
+            <controls:BookSection Grid.Column="1" Grid.Row="1" ImageSource="book_and_image" BookName="La horde du contrevant" AuthorName="{Binding AuthorName}" Status="Non lu"/>
+            <BoxView  Grid.ColumnSpan="3" Grid.Column="1"  Grid.Row="2" Margin="10,15,0,0"/>
+            <controls:BookSection Grid.Column="1" Grid.Row="3" ImageSource="book_and_image" BookName="La zone du dehors" AuthorName="{Binding AuthorName}" Status="Terminé"/>
         </Grid>
     </StackLayout>
 </ContentView>

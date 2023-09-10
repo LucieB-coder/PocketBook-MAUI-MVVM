@@ -129,7 +129,7 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
-        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
@@ -369,6 +369,7 @@
         <Setter Property="FontSize" Value="30" />
         <Setter Property="Margin" Value="16,0,0,16" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontAttributes" Value="Bold"/>
     </Style>
 
     <Style x:Key="subtitle" TargetType="Label">
@@ -376,18 +377,20 @@
         <Setter Property="FontSize" Value="24" />
         <Setter Property="Margin" Value="16" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontAttributes" Value="Bold"/>
     </Style>
 
     <Style x:Key="headerText" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource Primary}" />
-        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontSize" Value="18" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
     </Style>
 
     <Style x:Key="authorName" TargetType="Label">
         <Setter Property="TextColor" Value="Gray" />
-        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontSize" Value="16" />
         <Setter Property="FontFamily" Value="OpenSans" />
+        <Setter Property="FontAttributes" Value="Bold"/>
     </Style>
 
     <Style TargetType="Grid">
@@ -412,6 +415,13 @@
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
         <Setter Property="HeightRequest" Value="1" />
         <Setter Property="HorizontalOptions" Value="End" />
+    </Style>
+
+    <Style x:Key="boldLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="15" />
     </Style>
 
 </ResourceDictionary>
