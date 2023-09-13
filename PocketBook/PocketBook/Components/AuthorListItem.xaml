@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PocketBook.Components.AuthorListItem"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="PocketBook.Components.ListItem"
+             xmlns:controls="clr-namespace:PocketBook.Components"
              x:Name="this">
-    <Grid ColumnDefinitions="20,Auto,*,Auto" RowDefinitions="*,*" BindingContext="{x:Reference this}">
-        <HorizontalStackLayout Spacing="20" Grid.Column="1">
-            <Image Source="{Binding ImageSource}" />
-            <Label Text="{Binding ItemName}" />
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Grid.Column="3" HorizontalOptions="End">
+
+    <Grid ColumnDefinitions="10,Auto,20,*,*,Auto" RowDefinitions="*,*" BindingContext="{x:Reference this}">
+        <Image Source="book" Grid.Column="1" HeightRequest="30">
+            <Image.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
+            </Image.Behaviors>
+        </Image>
+        <Label Text="{Binding AuthorName}" Grid.Column="3"/>
+        <HorizontalStackLayout Grid.Column="4" HorizontalOptions="End">
             <Label Text="{Binding NumberOfElements}" TextColor="Gray"/>
             <ImageButton Source="chevron_right" Clicked="OnAllClicked" HeightRequest="30">
                 <ImageButton.Behaviors>
@@ -18,6 +22,6 @@
             </ImageButton>
 
         </HorizontalStackLayout>
-        <BoxView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,7,0,0"/>
+        <BoxView Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Margin="0,7,0,0"/>
     </Grid>
 </ContentView>

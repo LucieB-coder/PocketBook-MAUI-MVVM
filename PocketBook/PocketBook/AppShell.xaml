@@ -26,7 +26,7 @@
         <ShellContent
             Title="Search"
             Icon="magnifying_glass"
-            ContentTemplate="{DataTemplate local:MainPage}"
+            ContentTemplate="{DataTemplate local:AuthorsPage}"
             Route="Search" />
     </TabBar>
     <ShellContent
@@ -37,4 +37,8 @@
         Title="OneBook"
         ContentTemplate="{DataTemplate local:OneBookPage}"
         Route="OneBook" />
+    <ShellContent
+        Title="Authors"
+        ContentTemplate="{DataTemplate local:AuthorsPage}"
+        Route="Authors" />
 </Shell>
