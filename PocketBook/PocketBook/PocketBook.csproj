@@ -60,6 +60,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\arrow_up_and_down.svg" />
 	  <None Remove="Resources\Images\books_vertical.svg" />
+	  <None Remove="Resources\Images\person.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
