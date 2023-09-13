@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PocketBook.Components.BookDetailsRedButton"
+             x:Name="this"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <Grid ColumnDefinitions="Auto,15,Auto,*" RowDefinitions="*,*" BindingContext="{x:Reference this}" >
+        <Image Source="{Binding ImageSource}" HeightRequest="30" >
+            <Image.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}" />
+            </Image.Behaviors>
+        </Image>
+        <Label Style="{StaticResource headerText}" Text="{Binding ItemName}" HorizontalOptions="Start" Grid.Column="2"/>
+        <BoxView Grid.Row="1" Grid.ColumnSpan="3" Margin="0,7,0,0"/>
+    </Grid>
+</ContentView>

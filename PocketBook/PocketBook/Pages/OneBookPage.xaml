@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PocketBook.Pages.OneBookPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="OneBookPage"
+             xmlns:controls="clr-namespace:PocketBook.Components">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid ColumnDefinitions="*,*,*" Style="{StaticResource header}" >
+                <HorizontalStackLayout Grid.Column="0">
+                    <ImageButton Source="chevron_right" Rotation="180" Clicked="OnGoBack" HorizontalOptions="Start">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Red" />
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <Label Text="Tous" Grid.Column="1" Style="{StaticResource headerText}" />
+                </HorizontalStackLayout>
+                <Label Style="{StaticResource boldLabel}"  Text="Détails du livre" Grid.Column="1" HorizontalTextAlignment="Center"/>
+            </Grid>
+            <BoxView Margin="0,30,0,5" />
+            <Grid RowDefinitions="*,*,*,*,*,*,*,*,*,*" Margin="5,0,0,0">
+                <Grid ColumnDefinitions="Auto,10,*" RowDefinitions="*,15,*">
+                    <Image Source="book_and_image" HeightRequest="180" Grid.Column="0" HorizontalOptions="Start"/>
+                    <VerticalStackLayout Grid.Column="2">
+                        <Label Text="La horde du contrevent" Style="{StaticResource boldLabel}"/>
+                        <Grid RowDefinitions="135,Auto" Padding="0"  VerticalOptions="End">
+                            <HorizontalStackLayout Grid.Row="1">
+                                <Image Source="star" HeightRequest="20" >
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
+                                    </Image.Behaviors>
+                                </Image>
+                                <Image Source="star" HeightRequest="20" >
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
+                                    </Image.Behaviors>
+                                </Image>
+                                <Image Source="star" HeightRequest="20" >
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
+                                    </Image.Behaviors>
+                                </Image>
+                                <Image Source="star" HeightRequest="20" >
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
+                                    </Image.Behaviors>
+                                </Image>
+                                <Image Source="star" HeightRequest="20" >
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
+                                    </Image.Behaviors>
+                                </Image>
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                    <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
+                </Grid>
+                <Grid ColumnDefinitions="7,Auto,*,Auto,10" RowDefinitions="5,*,12,*" Grid.Row="1">
+                    <Label Style="{StaticResource boldLabel}" FontSize="18" Text="Infos en ligne" Grid.Column="1" Grid.Row="1" />
+                    <Image Source="chevron_right" HeightRequest="20" Grid.Column="3" Grid.Row="1">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Gray" />
+                        </Image.Behaviors>
+                    </Image>
+                    <BoxView Grid.Row="3" Grid.ColumnSpan="5"/>
+                </Grid>
+                <Grid ColumnDefinitions="7,*" RowDefinitions="5,Auto,*,14,*" Grid.Row="2">
+                    <Label Style="{StaticResource boldLabel}" Text="Auteur" Grid.Column="1" Grid.Row="1" />
+                    <Label FontSize="20" TextColor="{StaticResource Gray500}" Text="Alain Damasio" Grid.Column="1" Grid.Row="2" />
+                    <BoxView Grid.Row="4" Grid.Column="1"/>
+                </Grid>
+                <Grid ColumnDefinitions="7,*" RowDefinitions="5,*,*,14,*" Grid.Row="3">
+                    <Label Style="{StaticResource boldLabel}" Text="Maison d'édition" Grid.Column="1" Grid.Row="1" />
+                    <Label FontSize="20" TextColor="{StaticResource Gray500}" Text="Gallimard (2015)" Grid.Column="1" Grid.Row="2" />
+                    <BoxView Grid.Row="4" Grid.Column="1"/>
+                </Grid>
+                <Grid ColumnDefinitions="7,*,10" RowDefinitions="5,*, *, *,14,*" Grid.Row="4">
+                    <Label Style="{StaticResource boldLabel}" Text="Résumé" Grid.Column="1" Grid.Row="1" />
+                    <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="Un groupe d'élite blablablabalabalbalablablablblblblblblblblblblblblblbblblblblblblblblblblblblblblblblblblblblbllblblblblblblblblblblblblblbllblblbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbalbalablablablabalablablablabalbalbalbalalalalalalalalalalalala" Grid.Column="1" Grid.Row="2" />
+                    <BoxView Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
+                </Grid>
+                <Grid ColumnDefinitions="7,Auto,*,Auto,14" RowDefinitions="5,*,*,*,*,12,*" Grid.Row="5">
+                    <Label Style="{StaticResource boldLabel}" Text="Détails" Grid.Column="1" Grid.Row="1" />
+                    <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="Nombre de pages" Grid.Column="1" Grid.Row="2" />
+                    <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="Langue" Grid.Column="1" Grid.Row="3" />
+                    <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="ISBN" Grid.Column="1" Grid.Row="4" />
+                    <Label Style="{StaticResource bookDetails}" Text="700" Grid.Column="3" Grid.Row="2" />
+                    <Label Style="{StaticResource bookDetails}" Text="français" Grid.Column="3" Grid.Row="3" />
+                    <Label Style="{StaticResource bookDetails}" Text="9782070464234" Grid.Column="3" Grid.Row="4" />
+                    <BoxView Grid.Row="6" Grid.ColumnSpan="5" />
+                </Grid>
+                <Grid ColumnDefinitions="7,Auto,*,Auto,14" RowDefinitions="5,*,*,*,*,12,*" Grid.Row="6">
+                    <Label Style="{StaticResource boldLabel}" Text="Statut de letcure" Grid.Column="1" Grid.Row="1" />
+                    <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="Statut" Grid.Column="1" Grid.Row="2" />
+                    <Label Style="{StaticResource bookDetails}" Text="Non lu" Grid.Column="3" Grid.Row="2" />
+                    <BoxView Grid.Row="6" Grid.ColumnSpan="5"/>
+                </Grid>
+                <Grid ColumnDefinitions="7,Auto,*,Auto,14" RowDefinitions="5,*,*,*,*,12,*" Grid.Row="7">
+                    <Label Style="{StaticResource boldLabel}" Text="Bibliothèque" Grid.Column="1" Grid.Row="1" />
+                    <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="Ajouté le" Grid.Column="1" Grid.Row="2" />
+                    <Label Style="{StaticResource bookDetails}" Text="10 Août 2023" Grid.Column="3" Grid.Row="2" />
+                    <BoxView Grid.Row="6" Grid.ColumnSpan="5"/>
+                </Grid>
+                <Grid ColumnDefinitions="7,*" RowDefinitions="100,*" Grid.Row="8">
+                    <BoxView Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+                <Grid  RowDefinitions="*,*,*,*" ColumnDefinitions="*" Grid.Row="9" >
+                    <controls:BookDetailsRedButton ImageSource="heart_fill" ItemName="Déplacer le livre" />
+                    <controls:BookDetailsRedButton ImageSource="heart_fill" ItemName="Ajouter à la liste A lire plus tard" Grid.Row="1" />
+                    <controls:BookDetailsRedButton ImageSource="heart_fill" ItemName="Changer le statut de lecture" Grid.Row="2" />
+                    <controls:BookDetailsRedButton ImageSource="heart_fill" ItemName="Prêter le livre" Grid.Row="3" />
+                </Grid>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

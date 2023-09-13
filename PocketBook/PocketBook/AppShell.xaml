@@ -16,12 +16,12 @@
         <ShellContent
             Title="My Lists"
             Icon="list_bullet"
-            ContentTemplate="{DataTemplate local:MainPage}"
+            ContentTemplate="{DataTemplate local:AllBooksPage}"
             Route="Lists" />
         <ShellContent
             Title="My Readings"
             Icon="bookmark"
-            ContentTemplate="{DataTemplate local:MainPage}"
+            ContentTemplate="{DataTemplate local:OneBookPage}"
             Route="Readings" />
         <ShellContent
             Title="Search"
@@ -33,4 +33,8 @@
         Title="AllBooks"
         ContentTemplate="{DataTemplate local:AllBooksPage}"
         Route="AllBooks" />
+    <ShellContent
+        Title="OneBook"
+        ContentTemplate="{DataTemplate local:OneBookPage}"
+        Route="OneBook" />
 </Shell>

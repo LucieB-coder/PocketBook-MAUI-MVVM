@@ -392,6 +392,12 @@
         <Setter Property="FontFamily" Value="OpenSans" />
         <Setter Property="FontAttributes" Value="Bold"/>
     </Style>
+    
+    <Style x:Key="bookDetails" TargetType="Label">
+        <Setter Property="TextColor" Value="Gray" />
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
 
     <Style TargetType="Grid">
         <Setter Property="Padding" Value="7,7,0,0" />
@@ -405,6 +411,8 @@
 
     <Style TargetType="Frame">
         <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Shadow" Value="0"/>
     </Style>
 
     <Style TargetType="VerticalStackLayout">

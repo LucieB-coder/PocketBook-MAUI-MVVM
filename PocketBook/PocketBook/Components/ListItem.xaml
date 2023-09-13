@@ -4,25 +4,22 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="PocketBook.Components.ListItem"
              x:Name="this">
-    <Frame BindingContext="{x:Reference this}" >
-        <StackLayout>
-            <Grid ColumnDefinitions="20,Auto,*,Auto" RowDefinitions="*,*" >
-                <HorizontalStackLayout Spacing="20" Grid.Column="1">
-                    <Image Source="{Binding ImageSource}" />
-                    <Label Text="{Binding ItemName}" />
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Grid.Column="3" HorizontalOptions="End">
-                    <Label Text="{Binding NumberOfElements}" TextColor="Gray"/>
-                    <ImageButton Source="chevron_right" Clicked="OnAllClicked" HeightRequest="30">
-                        <ImageButton.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="Gray" />
-                        </ImageButton.Behaviors>
-                    </ImageButton>
+    <StackLayout BindingContext="{x:Reference this}">
+        <Grid ColumnDefinitions="20,Auto,*,Auto" RowDefinitions="*,*" >
+            <HorizontalStackLayout Spacing="20" Grid.Column="1">
+                <Image Source="{Binding ImageSource}" />
+                <Label Text="{Binding ItemName}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Column="3" HorizontalOptions="End">
+                <Label Text="{Binding NumberOfElements}" TextColor="Gray"/>
+                <ImageButton Source="chevron_right" Clicked="OnAllClicked" HeightRequest="30">
+                    <ImageButton.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="Gray" />
+                    </ImageButton.Behaviors>
+                </ImageButton>
 
-                </HorizontalStackLayout>
-                <BoxView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,7,0,0"/>
-            </Grid>
-            
-        </StackLayout>
-    </Frame>
+            </HorizontalStackLayout>
+            <BoxView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,7,0,0"/>
+        </Grid>
+    </StackLayout>
 </ContentView>

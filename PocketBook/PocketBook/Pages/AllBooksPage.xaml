@@ -23,18 +23,11 @@
                             <toolkit:IconTintColorBehavior TintColor="Red" />
                         </ImageButton.Behaviors>
                     </ImageButton>
-                    <HorizontalStackLayout Spacing="-10">
-                        <ImageButton Source="arrow_forward" Rotation="-90">
-                            <ImageButton.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="Red" />
-                            </ImageButton.Behaviors>
-                        </ImageButton>
-                        <Image Source="arrow_forward" Rotation=" 90">
-                            <Image.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="Red" />
-                            </Image.Behaviors>
-                        </Image>
-                    </HorizontalStackLayout>
+                    <ImageButton Source="arrow_up_and_down">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Red" />
+                        </ImageButton.Behaviors>
+                    </ImageButton>
                 </HorizontalStackLayout>
             </Grid>
             <VerticalStackLayout Spacing="10">
