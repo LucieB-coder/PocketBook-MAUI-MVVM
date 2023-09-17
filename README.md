@@ -1,10 +1,11 @@
 # PocketBook
 
 Bonjour.
+
 Voici mon travail sur les visuels de ce projet.
 
+Si vous vous le demandez, voici comment accéder le plus simplement à toutes les pages et éléments de pages que j'ai réalisé:
 
-En attendant, voici comment accéder le plus simplement à toutes les pages et éléments de pages que j'ai réalisé:
 * **Page bibliothèque :** Page d'accueil
 * **Page de liste des livres :** clic sur le premier item dans la liste "Mes livres" de la page d'accueil (appelé "Tous") ou sur l'onglet "My Lists" de la Tabbar
 * **Page affichant les détails d'un livre :** clic sur un livre dans l'onglet "My Lists"
