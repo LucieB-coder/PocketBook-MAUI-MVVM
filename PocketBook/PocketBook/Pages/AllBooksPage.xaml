@@ -9,11 +9,14 @@
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,*,*" Style="{StaticResource header}" >
                 <HorizontalStackLayout Grid.Column="0">
-                    <ImageButton Source="chevron_right" Rotation="180" Clicked="OnGoBack" HorizontalOptions="Start">
-                        <ImageButton.Behaviors>
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnGoBack"/>
+                    </HorizontalStackLayout.GestureRecognizers>
+                    <Image Source="chevron_right" Rotation="180" HorizontalOptions="Start">
+                        <Image.Behaviors>
                             <toolkit:IconTintColorBehavior TintColor="Red" />
-                        </ImageButton.Behaviors>
-                    </ImageButton>
+                        </Image.Behaviors>
+                    </Image>
                     <Label Text="Mes livres" Grid.Column="1" Style="{StaticResource headerText}" />
                 </HorizontalStackLayout>
                 <Label Style="{StaticResource boldLabel}"  Text="Tous" Grid.Column="1" HorizontalTextAlignment="Center"/>

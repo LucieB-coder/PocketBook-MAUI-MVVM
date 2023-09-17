@@ -34,4 +34,9 @@ public partial class BookSection : ContentView
 	{
 		InitializeComponent();
 	}
+
+    async void OnBookClicked(object sender, EventArgs args)
+    {
+        await Shell.Current.GoToAsync("//OneBook", false);
+    }
 }

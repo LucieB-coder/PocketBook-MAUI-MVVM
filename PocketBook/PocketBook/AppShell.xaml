@@ -12,7 +12,7 @@
             Title="My Library"
             Icon="books_vertical"
             ContentTemplate="{DataTemplate local:LibraryPage}"
-            Route="Library" />
+            Route="Library"/> 
         <ShellContent
             Title="My Lists"
             Icon="list_bullet"
@@ -29,16 +29,17 @@
             ContentTemplate="{DataTemplate local:AuthorsPage}"
             Route="Search" />
     </TabBar>
-    <ShellContent
-        Title="AllBooks"
-        ContentTemplate="{DataTemplate local:AllBooksPage}"
-        Route="AllBooks" />
-    <ShellContent
-        Title="OneBook"
-        ContentTemplate="{DataTemplate local:OneBookPage}"
-        Route="OneBook" />
+
     <ShellContent
         Title="Authors"
         ContentTemplate="{DataTemplate local:AuthorsPage}"
         Route="Authors" />
+    <ShellContent
+        Title="AllBooks"
+        ContentTemplate="{DataTemplate local:AllBooksPage}"
+        Route="AllBooks"/>
+    <ShellContent
+        Title="OneBook"
+        ContentTemplate="{DataTemplate local:OneBookPage}"
+        Route="OneBook" />
 </Shell>

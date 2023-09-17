@@ -9,6 +9,6 @@ public partial class OneBookPage : ContentPage
 
     async void OnGoBack(object sender, EventArgs args)
     {
-        await Shell.Current.GoToAsync("//Library");
+        await Shell.Current.GoToAsync("//AllBooks");
     }
 }

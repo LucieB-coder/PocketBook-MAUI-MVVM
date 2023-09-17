@@ -5,17 +5,21 @@
              x:Class="PocketBook.Components.ListItem"
              x:Name="this">
     <Grid ColumnDefinitions="20,Auto,*,Auto" RowDefinitions="*,*" BindingContext="{x:Reference this}">
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnClicked"
+                                  NumberOfTapsRequired="1"/>
+        </Grid.GestureRecognizers>
         <HorizontalStackLayout Spacing="20" Grid.Column="1">
             <Image Source="{Binding ImageSource}" />
             <Label Text="{Binding ItemName}" />
         </HorizontalStackLayout>
         <HorizontalStackLayout Grid.Column="3" HorizontalOptions="End">
             <Label Text="{Binding NumberOfElements}" TextColor="Gray"/>
-            <ImageButton Source="chevron_right" Clicked="OnAllClicked" HeightRequest="30">
-                <ImageButton.Behaviors>
+            <Image Source="chevron_right"  HeightRequest="30">
+                <Image.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="Gray" />
-                </ImageButton.Behaviors>
-            </ImageButton>
+                </Image.Behaviors>
+            </Image>
 
         </HorizontalStackLayout>
         <BoxView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,7,0,0"/>
