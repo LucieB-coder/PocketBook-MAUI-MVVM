@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PocketBook.Components.AddBookPopup"
+             BackgroundColor="Transparent"
+             WidthRequest="300"
+             VerticalOptions="Start"
+             HorizontalOptions="End"
+             Margin="0,0,20,0"
+             >
+    <Border StrokeThickness="0" BackgroundColor="{StaticResource Gray100}" StrokeShape="RoundRectangle 15" Grid.Column="1">
+        <Grid ColumnDefinitions="20,*,30" RowDefinitions="*,*,*,*,*,*,*,*,*,*" Padding="0">
+            <Label Grid.Column="1" Text="Ajouter un livre" Margin="0,10" TextColor="{StaticResource Gray500}"/>
+            <BoxView Grid.ColumnSpan="3" Grid.Row="1"/>
+            <Grid Grid.Column="1" Grid.Row="2" Style="{StaticResource popupItem}">
+                <Label Text="Scanner un code-barre" Style="{StaticResource boldLabel}"/>
+                <Image Source="scan_barcode" HeightRequest="30" Grid.Column="2"/>
+            </Grid>
+            <BoxView Grid.ColumnSpan="3"  Grid.Row="3"/>
+            <Grid Grid.Column="1" Grid.Row="4" Style="{StaticResource popupItem}">
+                <Label Text="Scanner des code-barres" Style="{StaticResource boldLabel}"/>
+                <Image Source="barcode" HeightRequest="30" Grid.Column="2"/>
+            </Grid>
+            <BoxView Grid.ColumnSpan="3" HeightRequest="10"  Grid.Row="5"/>
+            <Grid Grid.Column="1" Grid.Row="6"  Style="{StaticResource popupItem}">
+                <Label Text="Rechercher en ligne" Style="{StaticResource boldLabel}"/>
+                <Image Source="magnifying_glass" HeightRequest="25" Grid.Column="2"/>
+            </Grid>
+            <BoxView Grid.ColumnSpan="3"  Grid.Row="7"/>
+            <Grid Grid.Column="1" Grid.Row="8" Style="{StaticResource popupItem}">
+                <Label Text="Saisir l'ISBN" Style="{StaticResource boldLabel}"/>
+                <Image Source="keyboard" HeightRequest="30" Grid.Column="2"/>
+            </Grid>
+        </Grid>
+    </Border>
+    
+</ContentView>

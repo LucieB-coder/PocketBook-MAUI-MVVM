@@ -19,9 +19,10 @@
                     </Image>
                     <Label Text="Mes livres" Grid.Column="1" Style="{StaticResource headerText}" />
                 </HorizontalStackLayout>
+                
                 <Label Style="{StaticResource boldLabel}"  Text="Tous" Grid.Column="1" HorizontalTextAlignment="Center"/>
                 <HorizontalStackLayout Grid.Column="2" HorizontalOptions="End" Spacing="15">
-                    <ImageButton Source="plus">
+                    <ImageButton Source="plus" Clicked="OnAddBook" >
                         <ImageButton.Behaviors>
                             <toolkit:IconTintColorBehavior TintColor="Red" />
                         </ImageButton.Behaviors>
@@ -33,10 +34,14 @@
                     </ImageButton>
                 </HorizontalStackLayout>
             </Grid>
-            <VerticalStackLayout Spacing="10">
-                <controls:AuthorSection AuthorName="Alain Damasio"/>
-                <controls:AuthorSection AuthorName="J.K Rolling"/>
-            </VerticalStackLayout>
+            
+            <Grid>
+                <controls:AddBookPopup x:Name="popup" ZIndex="0"/>
+                <VerticalStackLayout Spacing="10" ZIndex="1" BackgroundColor="White">
+                    <controls:AuthorSection AuthorName="Alain Damasio"/>
+                    <controls:AuthorSection AuthorName="J.K Rolling"/>
+                </VerticalStackLayout>
+            </Grid>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

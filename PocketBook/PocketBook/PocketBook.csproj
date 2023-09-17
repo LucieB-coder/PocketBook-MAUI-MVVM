@@ -60,7 +60,9 @@
 	  <None Remove="Resources\Images\arrow_up_and_down.svg" />
 	  <None Remove="Resources\Images\book.svg" />
 	  <None Remove="Resources\Images\books_vertical.svg" />
+	  <None Remove="Resources\Images\keyboard.png" />
 	  <None Remove="Resources\Images\person.svg" />
+	  <None Remove="Resources\Images\scan_code.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -71,6 +73,9 @@
 	<ItemGroup>
 	  <Compile Update="Components\AuthorSection.xaml.cs">
 	    <DependentUpon>AuthorSection.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Components\AddBookPopup.xaml.cs">
+	    <DependentUpon>AddBookPopup.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="MainPage - Copier.xaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
@@ -88,6 +93,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Components\BookSection.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\AddBookPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\AllBooksPage.xaml">

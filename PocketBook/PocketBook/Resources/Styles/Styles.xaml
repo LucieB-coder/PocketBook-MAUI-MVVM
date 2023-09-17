@@ -372,4 +372,10 @@
         <Setter Property="FontSize" Value="15" />
     </Style>
 
+    <Style x:Key="popupItem" TargetType="Grid">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0,10"/>
+        <Setter Property="ColumnDefinitions" Value="Auto,*,Auto"/>
+    </Style>
+
 </ResourceDictionary>
