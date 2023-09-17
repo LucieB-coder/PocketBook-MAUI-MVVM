@@ -11,7 +11,7 @@ Si vous vous le demandez, voici comment accéder le plus simplement à toutes le
 * **Page affichant les détails d'un livre :** clic sur un livre dans l'onglet "My Lists"
 * **Page de filtre par auteur :** clic sur le premier item dans la liste "Filtres" de la page d'accueil (appelé "Auteur") ou sur l'onglet "Search" de la Tabbar
 * **Menu contextuel :** Clic sur le "+" rouge dans l'onglet "My Lists"
-* **Page d'emprunt/prêt :** clic sur le premier item dans la liste "Mes livres" de la page d'accueil (appelé "Prêt") dans la page d'accueil ou sur l'onglet "My Readings" dans laTabbar
+* **Page d'emprunt/prêt :** clic sur le premier item dans la liste "Mes livres" de la page d'accueil (appelé "En Prêt") dans la page d'accueil ou sur l'onglet "My Readings" dans laTabbar
 * **Page de filtre par date :** clic sur le deuxième item dans la liste "Filtres" de la page d'accueil (appelé "Date de publication")
 * **Page de filtre par note :** clic sur le troisième item dans la liste "Filtres" de la page d'accueil (appelé "Note")
 
