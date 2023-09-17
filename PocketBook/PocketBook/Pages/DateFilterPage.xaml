@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PocketBook.Pages.AuthorsPage"
+             x:Class="PocketBook.Pages.DateFilterPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:controls="clr-namespace:PocketBook.Components"
-             Title="AuthorsPage">
+             Title="DateFilterPage">
     <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,*,*" Style="{StaticResource header}" >
@@ -19,7 +19,7 @@
                     </Image>
                     <Label Text="Mes livres" Grid.Column="1" Style="{StaticResource headerText}" />
                 </HorizontalStackLayout>
-                <Label Style="{StaticResource boldLabel}"  Text="Auteur" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                <Label Style="{StaticResource boldLabel}"  Text="Date de publication" Grid.Column="1" HorizontalTextAlignment="Center"/>
                 <ImageButton Source="arrow_up_and_down" Grid.Column="2" HeightRequest="30" HorizontalOptions="End">
                     <ImageButton.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="Red" />
@@ -30,7 +30,7 @@
 
                 <BoxView Grid.Row="0"/>
                 <Grid ColumnDefinitions="7,*,Auto" Grid.Row="1" Padding="3">
-                    <Border StrokeThickness="0" BackgroundColor="{StaticResource Gray100}" HeightRequest="45" StrokeShape="RoundRectangle 10" Grid.Column="1">
+                    <Border Style="{StaticResource searchBar}" Grid.Column="1">
                         <Grid ColumnDefinitions="Auto,*" Padding="5,0,5,0" >
                             <Image Source="magnifying_glass" >
                                 <Image.Behaviors>
@@ -44,11 +44,11 @@
                 </Grid>
                 <BoxView Grid.Row="2"/>
                 <VerticalStackLayout Grid.Row="3">
-                    <controls:AuthorListItem AuthorName="Alain Damasio" NumberOfElements="2" />
-                    <controls:AuthorListItem AuthorName="Frank Thilliez" NumberOfElements="2" />
-                    <controls:AuthorListItem AuthorName="JK Rolling" NumberOfElements="8" />
-                    <controls:AuthorListItem AuthorName="Victor Hugo" NumberOfElements="1" />
-                    
+                    <controls:FilterListItem AuthorName="2022" NumberOfElements="1" />
+                    <controls:FilterListItem AuthorName="2021" NumberOfElements="2" />
+                    <controls:FilterListItem AuthorName="2020" NumberOfElements="8" />
+                    <controls:FilterListItem AuthorName="2019" NumberOfElements="1" />
+
                 </VerticalStackLayout>
             </Grid>
 

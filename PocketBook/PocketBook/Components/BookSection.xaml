@@ -2,14 +2,14 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:controls="clr-namespace:PocketBook.Components"
              x:Class="PocketBook.Components.BookSection"
              x:Name="this">
-    <Grid ColumnDefinitions="Auto,10,*" RowDefinitions="*,*" BindingContext="{x:Reference this}" >
+    <Grid ColumnDefinitions="70,20,*" RowDefinitions="*,*" BindingContext="{x:Reference this}" >
         <Grid.GestureRecognizers>
-            <TapGestureRecognizer Tapped="OnBookClicked"
-                          NumberOfTapsRequired="1"/>
+            <TapGestureRecognizer Tapped="OnBookClicked"/>
         </Grid.GestureRecognizers>
-        <Image Source="{Binding ImageSource}" HeightRequest="120" Grid.Column="0" HorizontalOptions="Start"/>
+        <controls:BookCover ImageSource="{Binding ImageSource}" HeightRequest="120" HorizontalOptions="Start"/>
         <VerticalStackLayout Grid.Column="2">
             <Label Text="{Binding BookName}" Style="{StaticResource boldLabel}"/>
             <Label Text="{Binding AuthorName}" />

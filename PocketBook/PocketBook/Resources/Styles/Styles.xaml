@@ -85,7 +85,7 @@
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray500}}" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray600}}" />
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
@@ -191,7 +191,7 @@
 
     <Style TargetType="SearchBar">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}" />
-        <Setter Property="PlaceholderColor" Value="{StaticResource Gray400}" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray600}}" />
         <Setter Property="CancelButtonColor" Value="{StaticResource Gray400}" />
         <Setter Property="BackgroundColor" Value="{StaticResource Gray100}" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
@@ -349,6 +349,10 @@
         <Setter Property="Padding" Value="15,0,15,0"/>
     </Style>
 
+    <Style x:Key="grayContainer" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" />
+    </Style>
+
     <Style TargetType="Frame">
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="0" />
@@ -360,7 +364,7 @@
     </Style>
 
     <Style TargetType="BoxView">
-        <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
+        <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}" />
         <Setter Property="HeightRequest" Value="1" />
         <Setter Property="HorizontalOptions" Value="End" />
     </Style>
@@ -379,8 +383,24 @@
     </Style>
 
     <Style TargetType="Button">
-        <Setter Property="TextColor" Value="{StaticResource Black}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
         <Setter Property="WidthRequest" Value="100"/>
+    </Style>
+
+    <Style x:Key="bookCover" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray500}}"/>
+        <Setter Property="StrokeThickness" Value="0"/>
+    </Style>
+
+    <Style x:Key="switchButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray500}}"/>
+    </Style>
+
+    <Style x:Key="searchBar" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray500}}"/>
+        <Setter Property="StrokeThickness" Value="0"/>
+        <Setter Property="HeightRequest" Value="45"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 10"/>
     </Style>
 
 </ResourceDictionary>

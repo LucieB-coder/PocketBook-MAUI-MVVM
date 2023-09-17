@@ -6,8 +6,7 @@
              x:Name="this">
     <Grid ColumnDefinitions="20,Auto,*,Auto" RowDefinitions="*,*" BindingContext="{x:Reference this}">
         <Grid.GestureRecognizers>
-            <TapGestureRecognizer Tapped="OnClicked"
-                                  NumberOfTapsRequired="1"/>
+            <TapGestureRecognizer Tapped="OnClicked"/>
         </Grid.GestureRecognizers>
         <HorizontalStackLayout Spacing="20" Grid.Column="1">
             <Image Source="{Binding ImageSource}" />

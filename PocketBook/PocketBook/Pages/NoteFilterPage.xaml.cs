@@ -1,8 +1,8 @@
 namespace PocketBook.Pages;
 
-public partial class AuthorsPage : ContentPage
+public partial class NoteFilterPage : ContentPage
 {
-	public AuthorsPage()
+	public NoteFilterPage()
 	{
 		InitializeComponent();
 	}

@@ -36,18 +36,18 @@
                 </HorizontalStackLayout>
             </Grid>
 
-            <VerticalStackLayout Spacing="10" BackgroundColor="White">
-                <Border StrokeThickness="0" BackgroundColor="{StaticResource Gray100}" StrokeShape="RoundRectangle 7" Grid.Column="1"  WidthRequest="212">
+            <VerticalStackLayout Spacing="10" >
+                <Border StrokeThickness="0" Style="{StaticResource grayContainer}" StrokeShape="RoundRectangle 7" Grid.Column="1"  WidthRequest="212">
                     <Grid Padding="4" ColumnDefinitions="Auto,4,Auto">
-                        <Button x:Name="LendsButton" Text="Prêts" BackgroundColor="White" Clicked="OnLendsClicked" />
-                        <Button x:Name="RentsButton" Text="Emprunts" BackgroundColor="{StaticResource Gray100}" Grid.Column="2" Clicked="OnRentsClicked"/>
+                        <Button x:Name="LendsButton" Text="Prêts" Style="{StaticResource switchButton}"  Clicked="OnLendsClicked" />
+                        <Button x:Name="RentsButton" Text="Emprunts" Style="{StaticResource grayContainer}" Grid.Column="2" Clicked="OnRentsClicked"/>
                     </Grid>
                 </Border>
                 <CollectionView x:Name="DisplayedCollection" ItemsSource="{Binding lends}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>
-                                <Border BackgroundColor="{StaticResource Gray100}" StrokeThickness="0" Padding="10,5,5,5">
+                                <Border Style="{StaticResource grayContainer}" StrokeThickness="0" Padding="10,5,5,5">
                                     <Label 
                                         Text="{Binding Name}"
                                         Style="{StaticResource authorName}"

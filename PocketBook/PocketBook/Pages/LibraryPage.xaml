@@ -23,56 +23,54 @@
                     VerticalOptions="Start"
                     Style="{StaticResource title}"/>
                 <BoxView Grid.Row="1"/>
-                <VerticalStackLayout Grid.Row="2" BackgroundColor="{StaticResource Secondary}">
+                <VerticalStackLayout Grid.Row="2" Style="{StaticResource grayContainer}">
                     <controls:ListItem 
                         ImageSource="tray_fill"
                         ItemName="Tous"
                         NumberOfElements="42"
                         ToGoRoute="Lists"/>
-
-
                     <controls:ListItem ImageSource="person_badge_clock_fill"
                         ItemName="En prêt"
                         NumberOfElements="2"
-                        ToGoRoute=""/>
+                        ToGoRoute="Readings"/>
                    
                     <controls:ListItem ImageSource="arrow_forward"
                         ItemName="A lire plus tard"
                         NumberOfElements=""
-                        ToGoRoute=""/>
+                        ToGoRoute="Library"/>
                    
                     <controls:ListItem ImageSource="eyeglasses"
                         ItemName="Statut de lecture"
                         NumberOfElements=""
-                        ToGoRoute=""/>
+                        ToGoRoute="Library"/>
                   
                     <controls:ListItem ImageSource="heart_fill"
                         ItemName="Favoris"
                         NumberOfElements=""
-                        ToGoRoute=""/>
+                        ToGoRoute="Library"/>
                    
                     <controls:ListItem ImageSource="tag_fill"
                         ItemName="Etiquettes"
                         NumberOfElements=""
-                        ToGoRoute=""/>
+                        ToGoRoute="Library"/>
                     
                 </VerticalStackLayout>
                 <BoxView Grid.Row="3"/>
                 <Label Grid.Row="4" Text="Filtres" Style="{StaticResource subtitle}"/>
                 <BoxView Grid.Row="5"/>
-                <VerticalStackLayout Grid.Row="6" BackgroundColor="{StaticResource Secondary}">
+                <VerticalStackLayout Grid.Row="6" Style="{StaticResource grayContainer}">
                     <controls:ListItem ImageSource="person_fill"
                         ItemName="Auteur"
                         NumberOfElements=""
-                        ToGoRoute="Authors"/>
+                        ToGoRoute="AuthorFilter"/>
                     <controls:ListItem ImageSource="calendar"
                         ItemName="Date de publication"
                         NumberOfElements=""
-                        ToGoRoute=""/>
+                        ToGoRoute="DateFilter"/>
                     <controls:ListItem ImageSource="sparkles"
                         ItemName="Note"
                         NumberOfElements=""
-                        ToGoRoute=""/>
+                        ToGoRoute="NoteFilter"/>
                 </VerticalStackLayout>
                 <BoxView Grid.Row="7"/>
             </Grid>

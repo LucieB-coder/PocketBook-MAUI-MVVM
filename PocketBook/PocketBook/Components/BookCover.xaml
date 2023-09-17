@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PocketBook.Components.BookCover"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Name="this">
+    <Grid Padding="0" BindingContext="{x:Reference this}" RowDefinitions="Auto,Auto,Auto" >
+        <Border ZIndex="2" Style="{StaticResource bookCover}" StrokeShape="RoundRectangle 5,2,0,0" Grid.Column="1">
+            <Image Source="{Binding ImageSource}" Margin="5"/>
+        </Border>
+        <Border ZIndex="0" Style="{StaticResource bookCover}" StrokeShape="RoundRectangle 0,0,5,2" Margin="0,-5,0,0" Grid.Column="1" Grid.Row="1">
+            <BoxView Color="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}" HeightRequest="4" Margin="5"/>
+        </Border>
+        <Image Source="bookmark" ZIndex="1" VerticalOptions="End" Grid.Row="2" HorizontalOptions="Start" Margin="5,-20,0,0" Opacity="1">
+            <Image.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="DarkRed" />
+            </Image.Behaviors>
+        </Image>
+    </Grid>
+</ContentView>

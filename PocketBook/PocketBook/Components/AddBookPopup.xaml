@@ -8,7 +8,7 @@
              HorizontalOptions="End"
              Margin="0,0,20,0"
              >
-    <Border StrokeThickness="0" BackgroundColor="{StaticResource Secondary}" StrokeShape="RoundRectangle 15" Grid.Column="1">
+    <Border StrokeThickness="0" Style="{StaticResource grayContainer}" StrokeShape="RoundRectangle 15" Grid.Column="1">
         <Grid ColumnDefinitions="20,*,30" RowDefinitions="*,*,*,*,*,*,*,*,*,*" Padding="0">
             <Label Grid.Column="1" Text="Ajouter un livre" Margin="0,10" TextColor="{StaticResource Gray500}"/>
             <BoxView Grid.ColumnSpan="3" Grid.Row="1"/>

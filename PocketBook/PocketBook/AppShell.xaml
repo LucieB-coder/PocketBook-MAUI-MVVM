@@ -26,14 +26,22 @@
         <ShellContent
             Title="Search"
             Icon="magnifying_glass"
-            ContentTemplate="{DataTemplate local:AuthorsPage}"
+            ContentTemplate="{DataTemplate local:AuthorFilterPage}"
             Route="Search" />
     </TabBar>
 
     <ShellContent
-        Title="Authors"
-        ContentTemplate="{DataTemplate local:AuthorsPage}"
-        Route="Authors" />
+        Title="Filter By Author"
+        ContentTemplate="{DataTemplate local:AuthorFilterPage}"
+        Route="AuthorFilter" />
+    <ShellContent
+        Title="Filter By Date"
+        ContentTemplate="{DataTemplate local:DateFilterPage}"
+        Route="DateFilter" />
+    <ShellContent
+        Title="Filter By Note"
+        ContentTemplate="{DataTemplate local:NoteFilterPage}"
+        Route="NoteFilter" />
     <ShellContent
         Title="AllBooks"
         ContentTemplate="{DataTemplate local:AllBooksPage}"

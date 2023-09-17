@@ -21,13 +21,13 @@ public partial class LendBooksPage : ContentPage
     void OnLendsClicked(object sender, EventArgs args)
     {
         LendsButton.BackgroundColor = Colors.White;
-        RentsButton.BackgroundColor = new Color(225, 225, 225);
+        RentsButton.BackgroundColor = Colors.Transparent;
         DisplayedCollection.ItemsSource = lends;
 
     }
      void OnRentsClicked(object sender, EventArgs args)
     {
-        LendsButton.BackgroundColor = new Color(225, 225, 225);
+        LendsButton.BackgroundColor = Colors.Transparent;
         RentsButton.BackgroundColor = Colors.White;
         DisplayedCollection.ItemsSource = rents;
     }

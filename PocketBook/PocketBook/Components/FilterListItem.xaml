@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PocketBook.Components.AuthorListItem"
+             x:Class="PocketBook.Components.FilterListItem"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:controls="clr-namespace:PocketBook.Components"
              x:Name="this">
 
     <Grid ColumnDefinitions="10,Auto,20,*,*,Auto" RowDefinitions="*,*" BindingContext="{x:Reference this}">
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnClicked"/>
+        </Grid.GestureRecognizers>
         <Image Source="book" Grid.Column="1" HeightRequest="30">
             <Image.Behaviors>
                 <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
@@ -15,11 +18,11 @@
         <Label Text="{Binding AuthorName}" Grid.Column="3"/>
         <HorizontalStackLayout Grid.Column="4" HorizontalOptions="End">
             <Label Text="{Binding NumberOfElements}" TextColor="Gray"/>
-            <ImageButton Source="chevron_right" Clicked="OnAllClicked" HeightRequest="30">
-                <ImageButton.Behaviors>
+            <Image Source="chevron_right" HeightRequest="30">
+                <Image.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="Gray" />
-                </ImageButton.Behaviors>
-            </ImageButton>
+                </Image.Behaviors>
+            </Image>
 
         </HorizontalStackLayout>
         <BoxView Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Margin="0,7,0,0"/>
