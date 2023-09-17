@@ -110,8 +110,8 @@
                     <BoxView Grid.Row="1" Grid.Column="1"/>
                 </Grid>
                 <Grid RowDefinitions="*,*,*,*" Grid.Row="9" >
-                    <controls:BookDetailsRedButton ImageSource="tag_fill" ItemName="Déplacer le livre" />
-                    <controls:BookDetailsRedButton ImageSource="plus" ItemName="Ajouter à la liste A lire plus tard" Grid.Row="1" />
+                    <controls:BookDetailsRedButton ImageSource="folder" ItemName="Déplacer le livre" />
+                    <controls:BookDetailsRedButton ImageSource="plus_circle" ItemName="Ajouter à la liste A lire plus tard" Grid.Row="1" />
                     <controls:BookDetailsRedButton ImageSource="eyeglasses" ItemName="Changer le statut de lecture" Grid.Row="2" />
                     <controls:BookDetailsRedButton ImageSource="person" ItemName="Prêter le livre" Grid.Row="3" />
                 </Grid>
