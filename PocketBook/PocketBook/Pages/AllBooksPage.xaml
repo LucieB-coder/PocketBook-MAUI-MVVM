@@ -35,7 +35,7 @@
                 </HorizontalStackLayout>
             </Grid>
             
-            <Grid>
+            <Grid Padding="0">
                 <controls:AddBookPopup x:Name="popup" ZIndex="0"/>
                 <VerticalStackLayout Spacing="10" ZIndex="1" BackgroundColor="White">
                     <controls:AuthorSection AuthorName="Alain Damasio"/>
