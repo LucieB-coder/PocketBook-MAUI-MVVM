@@ -31,10 +31,6 @@
     </TabBar>
 
     <ShellContent
-        Title="Filter By Author"
-        ContentTemplate="{DataTemplate local:AuthorFilterPage}"
-        Route="AuthorFilter" />
-    <ShellContent
         Title="Filter By Date"
         ContentTemplate="{DataTemplate local:DateFilterPage}"
         Route="DateFilter" />
@@ -43,15 +39,7 @@
         ContentTemplate="{DataTemplate local:NoteFilterPage}"
         Route="NoteFilter" />
     <ShellContent
-        Title="AllBooks"
-        ContentTemplate="{DataTemplate local:AllBooksPage}"
-        Route="AllBooks"/>
-    <ShellContent
         Title="OneBook"
         ContentTemplate="{DataTemplate local:OneBookPage}"
         Route="OneBook" />
-    <ShellContent
-        Title="LendBooks"
-        ContentTemplate="{DataTemplate local:LendBooksPage}"
-        Route="LendBooks" />
 </Shell>

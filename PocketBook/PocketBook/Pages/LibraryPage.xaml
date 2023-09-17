@@ -62,7 +62,7 @@
                     <controls:ListItem ImageSource="person_fill"
                         ItemName="Auteur"
                         NumberOfElements=""
-                        ToGoRoute="AuthorFilter"/>
+                        ToGoRoute="Search"/>
                     <controls:ListItem ImageSource="calendar"
                         ItemName="Date de publication"
                         NumberOfElements=""
