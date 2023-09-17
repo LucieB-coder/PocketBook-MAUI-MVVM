@@ -21,7 +21,7 @@
         <ShellContent
             Title="My Readings"
             Icon="bookmark"
-            ContentTemplate="{DataTemplate local:OneBookPage}"
+            ContentTemplate="{DataTemplate local:LendBooksPage}"
             Route="Readings" />
         <ShellContent
             Title="Search"
@@ -42,4 +42,8 @@
         Title="OneBook"
         ContentTemplate="{DataTemplate local:OneBookPage}"
         Route="OneBook" />
+    <ShellContent
+        Title="LendBooks"
+        ContentTemplate="{DataTemplate local:LendBooksPage}"
+        Route="LendBooks" />
 </Shell>

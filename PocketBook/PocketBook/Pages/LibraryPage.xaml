@@ -23,7 +23,7 @@
                     VerticalOptions="Start"
                     Style="{StaticResource title}"/>
                 <BoxView Grid.Row="1"/>
-                <VerticalStackLayout Grid.Row="2" BackgroundColor="#E7E7E7">
+                <VerticalStackLayout Grid.Row="2" BackgroundColor="{StaticResource Secondary}">
                     <controls:ListItem 
                         ImageSource="tray_fill"
                         ItemName="Tous"
@@ -60,7 +60,7 @@
                 <BoxView Grid.Row="3"/>
                 <Label Grid.Row="4" Text="Filtres" Style="{StaticResource subtitle}"/>
                 <BoxView Grid.Row="5"/>
-                <VerticalStackLayout Grid.Row="6" BackgroundColor="#E7E7E7">
+                <VerticalStackLayout Grid.Row="6" BackgroundColor="{StaticResource Secondary}">
                     <controls:ListItem ImageSource="person_fill"
                         ItemName="Auteur"
                         NumberOfElements=""

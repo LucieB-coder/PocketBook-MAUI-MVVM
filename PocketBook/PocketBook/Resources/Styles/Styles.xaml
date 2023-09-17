@@ -378,4 +378,9 @@
         <Setter Property="ColumnDefinitions" Value="Auto,*,Auto"/>
     </Style>
 
+    <Style TargetType="Button">
+        <Setter Property="TextColor" Value="{StaticResource Black}"/>
+        <Setter Property="WidthRequest" Value="100"/>
+    </Style>
+
 </ResourceDictionary>
