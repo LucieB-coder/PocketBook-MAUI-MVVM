@@ -17,7 +17,7 @@
             Title="My Lists"
             Icon="list_bullet"
             ContentTemplate="{DataTemplate local:AllBooksPage}"
-            Route="Lists" />
+            Route="AllBooksPage" />
         <ShellContent
             Title="My Readings"
             Icon="bookmark"

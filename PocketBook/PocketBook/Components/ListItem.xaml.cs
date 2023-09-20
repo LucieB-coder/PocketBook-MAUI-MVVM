@@ -1,3 +1,5 @@
+using PocketBook.ViewModel;
+
 namespace PocketBook.Components;
 
 public partial class ListItem : ContentView
@@ -27,13 +29,12 @@ public partial class ListItem : ContentView
         get => (string)GetValue(ListItem.ToGoRouteProperty);
         set => SetValue(ListItem.ToGoRouteProperty, value);
     }
+
+    public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
+
     public ListItem()
 	{
+        BindingContext = this;
 		InitializeComponent();
-    }
-
-    async void OnClicked(object sender, EventArgs args)
-    {
-        await Shell.Current.GoToAsync("//"+ToGoRoute, false);
     }
 }
