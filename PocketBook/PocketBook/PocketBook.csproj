@@ -74,6 +74,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Model\Model.csproj" />
+	  <ProjectReference Include="..\Stub\Stub.csproj" />
+	  <ProjectReference Include="..\ViewModelWrapper\ViewModelWrapper.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="Components\FilterListItem.xaml.cs">
 	    <DependentUpon>FilterListItem.xaml</DependentUpon>
 	  </Compile>

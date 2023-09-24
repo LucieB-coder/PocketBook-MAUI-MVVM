@@ -38,7 +38,7 @@
             <Grid Padding="0">
                 <controls:AddBookPopup x:Name="popup" ZIndex="0"/>
 
-                <CollectionView ZIndex="1" x:Name="DisplayedCollection" ItemsSource="{Binding AuthorsAndBooks}" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
+                <CollectionView ZIndex="1" x:Name="DisplayedCollection" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>
