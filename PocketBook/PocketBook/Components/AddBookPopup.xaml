@@ -28,6 +28,9 @@
             </Grid>
             <BoxView Grid.ColumnSpan="3"  Grid.Row="7"/>
             <Grid Grid.Column="1" Grid.Row="8" Style="{StaticResource popupItem}">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigationViewModel.DisplayModalCommand}" CommandParameter="Saisir l'ISBN "/>
+                </Grid.GestureRecognizers>
                 <Label Text="Saisir l'ISBN" Style="{StaticResource boldLabel}"/>
                 <Image Source="keyboard" HeightRequest="30" Grid.Column="2"/>
             </Grid>
