@@ -1,14 +1,14 @@
+using PocketBook.ViewModel;
+
 namespace PocketBook.Pages;
 
 public partial class NoteFilterPage : ContentPage
 {
-	public NoteFilterPage()
+
+    public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
+    public NoteFilterPage()
 	{
 		InitializeComponent();
+		BindingContext = this;
 	}
-
-    async void OnGoBack(object sender, EventArgs args)
-    {
-        await Shell.Current.GoToAsync("//Library");
-    }
 }

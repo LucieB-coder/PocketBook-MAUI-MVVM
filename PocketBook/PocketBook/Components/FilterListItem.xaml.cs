@@ -1,3 +1,5 @@
+using PocketBook.ViewModel;
+
 namespace PocketBook.Components;
 
 public partial class FilterListItem : ContentView
@@ -16,13 +18,12 @@ public partial class FilterListItem : ContentView
         set => SetValue(FilterListItem.NumberOfElementsProperty, value);
     }
 
+    public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
+
     public FilterListItem()
 	{
 		InitializeComponent();
+        BindingContext = this;
 	}
 
-    async void OnClicked(object sender, EventArgs args)
-    {
-        await Shell.Current.GoToAsync("//Lists", false);
-    }
 }

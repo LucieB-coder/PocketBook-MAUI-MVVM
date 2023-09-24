@@ -10,7 +10,7 @@
             <Grid ColumnDefinitions="*,*,*" Style="{StaticResource header}" >
                 <HorizontalStackLayout Grid.Column="0">
                     <HorizontalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnGoBack"/>
+                        <TapGestureRecognizer Command="{Binding NavigationViewModel.NavigateCommand}" CommandParameter="LibraryPage"/>
                     </HorizontalStackLayout.GestureRecognizers>
                     <Image Source="chevron_right" Rotation="180" HorizontalOptions="Start">
                         <Image.Behaviors>

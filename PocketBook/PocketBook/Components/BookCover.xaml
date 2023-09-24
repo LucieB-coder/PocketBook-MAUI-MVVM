@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PocketBook.Components.BookCover"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Name="this">
-    <Grid Padding="0" BindingContext="{x:Reference this}" RowDefinitions="Auto,Auto,Auto" >
+             >
+    <Grid Padding="0" RowDefinitions="Auto,Auto,Auto" >
         <Border ZIndex="2" Style="{StaticResource bookCover}" StrokeShape="RoundRectangle 5,2,0,0" Grid.Column="1">
             <Image Source="{Binding ImageSource}" Margin="5"/>
         </Border>

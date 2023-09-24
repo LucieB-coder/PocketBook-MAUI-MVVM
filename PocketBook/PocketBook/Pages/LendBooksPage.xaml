@@ -4,14 +4,13 @@
              x:Class="PocketBook.Pages.LendBooksPage"
              xmlns:controls="clr-namespace:PocketBook.Components"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             Title="LendBooksPage"
-             x:Name="this">
-    <ScrollView BindingContext="{x:Reference this}">
+             Title="LendBooksPage">
+    <ScrollView >
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,*,*" Style="{StaticResource header}" >
                 <HorizontalStackLayout Grid.Column="0">
                     <HorizontalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnGoBack"/>
+                        <TapGestureRecognizer Command="{Binding NavigationViewModel.NavigateCommand}" CommandParameter="LibraryPage"/>
                     </HorizontalStackLayout.GestureRecognizers>
                     <Image Source="chevron_right" Rotation="180" HorizontalOptions="Start">
                         <Image.Behaviors>

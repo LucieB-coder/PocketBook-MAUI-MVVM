@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="PocketBook.Components.ListItem"
-             xmlns:local="clr-namespace:PocketBook.Components"
-             x:Name="this">
+             xmlns:local="clr-namespace:PocketBook.Components">
     <Grid ColumnDefinitions="20,Auto,*,Auto" RowDefinitions="*,*" x:DataType="local:ListItem">
         <Grid.GestureRecognizers>
             <TapGestureRecognizer Command="{Binding NavigationViewModel.NavigateCommand}" CommandParameter="{Binding ToGoRoute}"/>

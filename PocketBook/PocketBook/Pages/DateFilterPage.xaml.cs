@@ -1,14 +1,13 @@
+using PocketBook.ViewModel;
+
 namespace PocketBook.Pages;
 
 public partial class DateFilterPage : ContentPage
 {
-	public DateFilterPage()
+    public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
+    public DateFilterPage()
 	{
 		InitializeComponent();
+		BindingContext = this;
 	}
-
-    async void OnGoBack(object sender, EventArgs args)
-    {
-        await Shell.Current.GoToAsync("//Library");
-    }
 }

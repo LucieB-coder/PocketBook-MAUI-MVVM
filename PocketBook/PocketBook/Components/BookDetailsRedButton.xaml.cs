@@ -18,5 +18,6 @@ public partial class BookDetailsRedButton : ContentView
     public BookDetailsRedButton()
 	{
 		InitializeComponent();
+        BindingContext = this; 
 	}
 }

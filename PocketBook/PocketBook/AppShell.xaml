@@ -12,34 +12,21 @@
             Title="My Library"
             Icon="books_vertical"
             ContentTemplate="{DataTemplate local:LibraryPage}"
-            Route="Library"/> 
+            Route="Librar"/>
         <ShellContent
             Title="My Lists"
             Icon="list_bullet"
-            ContentTemplate="{DataTemplate local:AllBooksPage}"
-            Route="AllBooksPage" />
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="Lists" />
         <ShellContent
             Title="My Readings"
             Icon="bookmark"
-            ContentTemplate="{DataTemplate local:LendBooksPage}"
+            ContentTemplate="{DataTemplate local:MainPage}"
             Route="Readings" />
         <ShellContent
             Title="Search"
             Icon="magnifying_glass"
-            ContentTemplate="{DataTemplate local:AuthorFilterPage}"
+            ContentTemplate="{DataTemplate local:MainPage}"
             Route="Search" />
     </TabBar>
-
-    <ShellContent
-        Title="Filter By Date"
-        ContentTemplate="{DataTemplate local:DateFilterPage}"
-        Route="DateFilter" />
-    <ShellContent
-        Title="Filter By Note"
-        ContentTemplate="{DataTemplate local:NoteFilterPage}"
-        Route="NoteFilter" />
-    <ShellContent
-        Title="OneBook"
-        ContentTemplate="{DataTemplate local:OneBookPage}"
-        Route="OneBook" />
 </Shell>

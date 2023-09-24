@@ -1,3 +1,5 @@
+using PocketBook.ViewModel;
+
 namespace PocketBook.Components;
 
 public partial class BookSection : ContentView
@@ -30,13 +32,11 @@ public partial class BookSection : ContentView
         set => SetValue(BookSection.StatusProperty, value);
     }
 
+    public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
+
     public BookSection()
 	{
-		InitializeComponent();
-	}
-
-    async void OnBookClicked(object sender, EventArgs args)
-    {
-        await Shell.Current.GoToAsync("//OneBook", false);
+        InitializeComponent();
+        BindingContext = this;
     }
 }

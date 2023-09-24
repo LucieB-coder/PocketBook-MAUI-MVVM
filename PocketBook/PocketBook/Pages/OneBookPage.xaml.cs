@@ -1,14 +1,13 @@
+using PocketBook.ViewModel;
+
 namespace PocketBook.Pages;
 
 public partial class OneBookPage : ContentPage
 {
-	public OneBookPage()
+    public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
+    public OneBookPage()
 	{
 		InitializeComponent();
+		BindingContext = this;
 	}
-
-    async void OnGoBack(object sender, EventArgs args)
-    {
-        await Shell.Current.GoToAsync("//Lists");
-    }
 }
