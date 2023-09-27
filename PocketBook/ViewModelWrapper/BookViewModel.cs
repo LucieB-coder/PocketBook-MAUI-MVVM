@@ -8,11 +8,18 @@ namespace ViewModelWrapper
     public class BookViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public List<Book> GetAllBooks(ILibraryManager libMng)
+        private ILibraryManager libraryManager;
+        public IEnumerable<Book> GetAllBooks()
         {
-            return libMng.GetAllBooks();
+            return libraryManager.GetAllBooks();
         }
-
+        public IEnumerable<Book> GetBooksByAuthor(int authorId)
+        {
+            return libraryManager.GetBooksByAuthor(authorId);
+        }
+        public BookViewModel(ILibraryManager libraryManager)
+        {
+            this.libraryManager = libraryManager;
+        }
     }
 }

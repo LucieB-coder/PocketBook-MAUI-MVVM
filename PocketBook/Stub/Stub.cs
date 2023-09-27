@@ -8,7 +8,7 @@ namespace Stub
         private Authors authors { get; set; } = new Authors();
         private Books books { get; set; } = new Books();
 
-        public List<Book> GetAllBooks()
+        public IEnumerable<Book> GetAllBooks()
         {
             return books.BookList;
         }
@@ -23,7 +23,7 @@ namespace Stub
             return (Book)books.BookList.Where(author => author.Id == bookId);
         }
 
-        public List<Book> GetBooksByAuthor(int authorId)
+        public IEnumerable<Book> GetBooksByAuthor(int authorId)
         {
             return books.BookList.Where(book => book.Authors.Contains(authorId)).ToList();
         }

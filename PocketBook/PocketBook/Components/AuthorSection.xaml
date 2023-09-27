@@ -11,9 +11,9 @@
                 Style="{StaticResource authorName}"
                 HorizontalOptions="Start"/>
             </Border>
-            <controls:BookSection Grid.Column="1" Grid.Row="1" ImageSource="les_miserables" BookName="La horde du contrevant" AuthorName="{Binding AuthorName}" Status="Non lu"/>
+            <!--<controls:BookSection Grid.Column="1" Grid.Row="1" ImageSource="les_miserables" BookName="La horde du contrevant" AuthorName="{Binding AuthorName}" Status="Non lu"/> -->
             <BoxView  Grid.ColumnSpan="3" Grid.Column="1"  Grid.Row="2" Margin="10,15,0,0"/>
-            <controls:BookSection Grid.Column="1" Grid.Row="3" ImageSource="book_and_image" BookName="La zone du dehors" AuthorName="{Binding AuthorName}" Status="Terminé"/>
+            <!--<controls:BookSection Grid.Column="1" Grid.Row="3" ImageSource="book_and_image" BookName="La zone du dehors" AuthorName="{Binding AuthorName}" Status="Terminé"/> -->
         </Grid>
     </StackLayout>
 </ContentView>

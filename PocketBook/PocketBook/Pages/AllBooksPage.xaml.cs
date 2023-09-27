@@ -10,15 +10,16 @@ namespace PocketBook.Pages;
 public partial class AllBooksPage : ContentPage
 {      
     public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
-    public BookViewModel BookViewModel { get; set; } = new BookViewModel();
-    public ILibraryManager LibraryManager { get; set; } = DependencyService.Get<ILibraryManager>();
-    public AllBooksPage()
+    public BookViewModel BookVM { get; set; }
+
+    public IEnumerable<Book> Books { get; set; }
+    public AllBooksPage(BookViewModel bookVM)
 	{
+        BookVM = bookVM;
+        Books = BookVM.GetAllBooks();
         InitializeComponent();
-        DisplayedCollection.ItemsSource = BookViewModel.GetAllBooks(LibraryManager);
         BindingContext = this;
     }
-
     void OnAddBook(object sender, EventArgs args)
     {
         if (popup.ZIndex == 0)

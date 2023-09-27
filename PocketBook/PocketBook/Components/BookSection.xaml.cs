@@ -1,23 +1,24 @@
+using Model;
 using PocketBook.ViewModel;
 
 namespace PocketBook.Components;
 
 public partial class BookSection : ContentView
 {
-    public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(string), typeof(BookSection), string.Empty);
-    public static readonly BindableProperty BookNameProperty = BindableProperty.Create(nameof(BookName), typeof(string), typeof(BookSection), string.Empty);
+    public static readonly BindableProperty CoverImageProperty = BindableProperty.Create(nameof(CoverImage), typeof(string), typeof(BookSection), string.Empty);
+    public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(Title), typeof(string), typeof(BookSection), string.Empty);
     public static readonly BindableProperty AuthorNameProperty = BindableProperty.Create(nameof(AuthorName), typeof(string), typeof(BookSection), string.Empty);
-    public static readonly BindableProperty StatusProperty = BindableProperty.Create(nameof(Status), typeof(string), typeof(BookSection), string.Empty);
+    public static readonly BindableProperty ReadingStatusProperty = BindableProperty.Create(nameof(ReadingStatus), typeof(string), typeof(BookSection), string.Empty);
 
-    public string ImageSource
+    public string CoverImage
     {
-        get => (string)GetValue(BookSection.ImageSourceProperty);
-        set => SetValue(BookSection.ImageSourceProperty, value);
+        get => (string)GetValue(BookSection.CoverImageProperty);
+        set => SetValue(BookSection.CoverImageProperty, value);
     }
-    public string BookName
+    public string Title
     {
-        get => (string)GetValue(BookSection.BookNameProperty);
-        set => SetValue(BookSection.BookNameProperty, value);
+        get => (string)GetValue(BookSection.TitleProperty);
+        set => SetValue(BookSection.TitleProperty, value);
     }
 
     public string AuthorName
@@ -26,10 +27,10 @@ public partial class BookSection : ContentView
         set => SetValue(BookSection.AuthorNameProperty, value);
     }
 
-    public string Status
+    public string ReadingStatus
     {
-        get => (string)GetValue(BookSection.StatusProperty);
-        set => SetValue(BookSection.StatusProperty, value);
+        get => (string)GetValue(BookSection.ReadingStatusProperty);
+        set => SetValue(BookSection.ReadingStatusProperty, value);
     }
 
     public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
@@ -37,6 +38,9 @@ public partial class BookSection : ContentView
     public BookSection()
 	{
         InitializeComponent();
-        BindingContext = this;
+        coverImage.SetBinding(Image.SourceProperty,"CoverImage");
+        title.SetBinding(Label.TextProperty, "Title");
+        authorName.SetBinding(Label.TextProperty, "AuthorName");
+        readingStatus.SetBinding(Label.TextProperty, "ReadingStatus");
     }
 }

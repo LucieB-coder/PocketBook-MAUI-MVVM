@@ -57,7 +57,7 @@
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
                                             <Grid ColumnDefinitions="7,Auto,*,Auto" RowDefinitions="*,*,*,*" Padding="0">
-                                                <controls:BookSection Grid.Column="1" Grid.Row="1" ImageSource="{Binding ImageSource}" BookName="{Binding Title}" AuthorName="{Binding AuthorName}" Status="{Binding Status}"/>
+                                                <!--<controls:BookSection Grid.Column="1" Grid.Row="1" ImageSource="{Binding ImageSource}" BookName="{Binding Title}" AuthorName="{Binding AuthorName}" Status="{Binding Status}"/> -->
                                                 <BoxView  Grid.ColumnSpan="3" Grid.Column="1"  Grid.Row="2" Margin="10,15,0,0"/>
                                             </Grid>
                                         </DataTemplate>

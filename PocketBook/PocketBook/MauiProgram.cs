@@ -1,6 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.DependencyInjection;
+using Stub;
+using Model;
+using ViewModelWrapper;
+using PocketBook.Pages;
 
 namespace PocketBook
 {
@@ -8,9 +12,7 @@ namespace PocketBook
     {
         public static MauiApp CreateMauiApp()
         {
-            var startup = new Startup();
             var builder = MauiApp.CreateBuilder();
-            Startup.ConfigureServices(builder.Services);
             builder
                 .UseMauiApp<App>()
                 // Initialize the .NET MAUI Community Toolkit
@@ -20,7 +22,10 @@ namespace PocketBook
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-            
+                builder.Services.AddTransient<ILibraryManager, Stub.Stub>();
+                builder.Services.AddTransient <BookViewModel>();
+                builder.Services.AddTransient<AllBooksPage>();
+
 
 
 #if DEBUG

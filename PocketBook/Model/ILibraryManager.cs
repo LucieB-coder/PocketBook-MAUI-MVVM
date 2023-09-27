@@ -10,7 +10,7 @@ namespace Model
     {
         Book GetBookById(int id);
         Author GetAuthorById(int id);
-        List<Book> GetAllBooks();
-        List<Book> GetBooksByAuthor(int authorId);
+        IEnumerable<Book> GetAllBooks();
+        IEnumerable<Book> GetBooksByAuthor(int authorId);
     }
 }

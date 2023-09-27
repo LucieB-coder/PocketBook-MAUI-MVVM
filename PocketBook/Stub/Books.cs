@@ -10,10 +10,10 @@ namespace Stub
 {
     public class Books
     {
-        public List<Book> BookList { get; set; } = new List<Book> 
+        public IEnumerable<Book> BookList { get; set; } = new List<Book> 
         { 
             new Book { Id = 1, Title = "La horde du contrevent", Description = "wsrhdxtjgfckhygvljbhkmnjl", Authors = new List<int> { 1 }, CoverImage = "la_horde_du_contrevent", Grade = 2, ReadingStatus = "Terminé" },
-            new Book { Id = 2, Title = "L'équateur d'Einstein", Description = "wsrhdxtjgfckhygvljbhkmnjl", Authors = new List<int> { 2 }, CoverImage = "l_equateur_d_einstein", Grade = 4, ReadingStatus = "Terminé" },
+            new Book { Id = 2, Title = "L'équateur d'Einstein", Description = "wsrhdxtjgfckhygvljbhkmnjl", Authors = new List<int> { 2 }, CoverImage = "l_equateur_d_einstein", Grade = 4, ReadingStatus = "Non lu" },
             new Book { Id = 3, Title = "La forêt sombre", Description = "wsrhdxtjgfckhygvljbhkmnjl", Authors = new List<int> { 2 }, CoverImage = "la_foret_sombre", Grade = 4, ReadingStatus = "Terminé" },
             new Book { Id = 4, Title = "Le problème à trois corps", Description = "wsrhdxtjgfckhygvljbhkmnjl", Authors = new List<int> { 2 }, CoverImage = "le_probleme_a_trois_corps", Grade = 3, ReadingStatus = "Terminé" },
             new Book { Id = 5, Title = "Labyrinthes", Description = "wsrhdxtjgfckhygvljbhkmnjl", Authors = new List<int> { 3 }, CoverImage = "labyrinthes", Grade = 3, ReadingStatus = "Terminé" },

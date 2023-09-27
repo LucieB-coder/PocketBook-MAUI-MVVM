@@ -5,7 +5,7 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="PocketBook.Pages.AllBooksPage"
              Title="AllBooksPage">
-    <ScrollView >
+    <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,*,*" Style="{StaticResource header}" >
                 <HorizontalStackLayout Grid.Column="0">
@@ -38,7 +38,7 @@
             <Grid Padding="0">
                 <controls:AddBookPopup x:Name="popup" ZIndex="0"/>
 
-                <CollectionView ZIndex="1" x:Name="DisplayedCollection" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
+               <!-- <CollectionView ZIndex="1" x:Name="DisplayedCollection" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>
@@ -47,22 +47,22 @@
                                         Text="{Binding Name}"
                                         Style="{StaticResource authorName}"
                                         HorizontalOptions="Start"/> 
-                                </Border>
+                                </Border> -->
 
-                                <CollectionView x:Name="BookList" ItemsSource="{Binding Books}">
+                                <CollectionView x:Name="BookList" ItemsSource="{Binding Books}" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
                                             <Grid ColumnDefinitions="7,Auto,*,Auto" RowDefinitions="*,*,*,*" Padding="0">
-                                                <controls:BookSection Grid.Column="1" Grid.Row="1" ImageSource="{Binding ImageSource}" BookName="{Binding Title}" AuthorName="{Binding AuthorName}" Status="{Binding Status}"/>
+                                                <controls:BookSection Grid.Column="1" Grid.Row="1" CoverImage="{Binding CoverImage}" Title="{Binding Title}" AuthorName="oui" ReadingStatus="{Binding ReadingStatus}"/>
                                                 <BoxView  Grid.ColumnSpan="3" Grid.Column="1"  Grid.Row="2" Margin="10,15,0,0"/>
                                             </Grid>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
-                            </StackLayout>
+                      <!--      </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-                </CollectionView>
+                </CollectionView> -->
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
