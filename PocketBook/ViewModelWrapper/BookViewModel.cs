@@ -1,25 +1,34 @@
-﻿using System.Collections.Specialized;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Model;
+using MyToolkit;
 
 namespace ViewModelWrapper
 {
-    // All the code in this file is included in all platforms.
-    public class BookViewModel : INotifyPropertyChanged
+    public class BookViewModel : BaseViewModelWrapper<BookViewModel>
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        private ILibraryManager libraryManager;
-        public IEnumerable<Book> GetAllBooks()
+        private Book Model { get; set; }
+
+        #region wrapping
+
+        public int Id { get => Model.Id; }
+        public string Title { get => Model.Title; }
+        public string Description { get => Model.Description; }
+        public IEnumerable<int> Authors { get => Model.Authors; }
+        public string CoverImage { get => Model.CoverImage; }
+        public string ReadingStatus { get => Model.ReadingStatus; }
+        public int Grade { get => Model.Grade; }
+
+        #endregion
+
+        #region constructor
+
+        public BookViewModel(Book book) 
         {
-            return libraryManager.GetAllBooks();
+            Model = book;
         }
-        public IEnumerable<Book> GetBooksByAuthor(int authorId)
-        {
-            return libraryManager.GetBooksByAuthor(authorId);
-        }
-        public BookViewModel(ILibraryManager libraryManager)
-        {
-            this.libraryManager = libraryManager;
-        }
+
+        public BookViewModel() { }
+
+        #endregion
     }
 }

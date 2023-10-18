@@ -1,6 +1,6 @@
 ﻿namespace Model
 {
-    public class Book
+    public class Book : IEquatable<Book>
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -9,6 +9,9 @@
         public string CoverImage { get; set; }
         public string ReadingStatus { get; set; }
         public int Grade { get; set; }
+
+        public bool Equals(Book other)
+            => Id == other.Id;
 
         public Book() { }
     }

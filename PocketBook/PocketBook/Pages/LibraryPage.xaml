@@ -4,7 +4,8 @@
              xmlns:controls="clr-namespace:PocketBook.Components"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="PocketBook.Pages.LibraryPage"
-             Title="LibraryPage">
+             Title="LibraryPage"
+             x:Name="root">
     
     <ScrollView>
         <VerticalStackLayout>
@@ -24,53 +25,70 @@
                     Style="{StaticResource title}"/>
                 <BoxView Grid.Row="1"/>
                 <VerticalStackLayout Grid.Row="2" Style="{StaticResource grayContainer}">
-                    <controls:ListItem 
+                    <controls:ListItem
+                        Command="{Binding LoaderNavigationVM.NavigateToBooksPageCommand, Source={x:Reference root}}"
+                        CommandParameter="all"
                         ImageSource="tray_fill"
                         ItemName="Tous"
-                        NumberOfElements="42"
-                        ToGoRoute="AllBooksPage"/>
-                    <controls:ListItem ImageSource="person_badge_clock_fill"
+                        NumberOfElements="42"/>
+                    <controls:ListItem 
+                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
+                        CommandParameter="LendBooksPage"
+                        ImageSource="person_badge_clock_fill"
                         ItemName="En prêt"
-                        NumberOfElements="2"
-                        ToGoRoute="LendBooksPage"/>
+                        NumberOfElements="2"/>
                    
-                    <controls:ListItem ImageSource="arrow_forward"
+                    <controls:ListItem
+                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
+                        CommandParameter="AuthorFilterPage"
+                        ImageSource="arrow_forward"
                         ItemName="A lire plus tard"
-                        NumberOfElements=""
-                        ToGoRoute="AuthorFilterPage"/>
+                        NumberOfElements=""/>
                    
-                    <controls:ListItem ImageSource="eyeglasses"
+                    <controls:ListItem 
+                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
+                        CommandParameter="AuthorFilterPage"
+                        ImageSource="eyeglasses"
                         ItemName="Statut de lecture"
-                        NumberOfElements=""
-                        ToGoRoute="AuthorFilterPage"/>
+                        NumberOfElements=""/>
                   
-                    <controls:ListItem ImageSource="heart_fill"
+                    <controls:ListItem 
+                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
+                        CommandParameter="AuthorFilterPage"
+                        ImageSource="heart_fill"
                         ItemName="Favoris"
-                        NumberOfElements=""
-                        ToGoRoute="AuthorFilterPage"/>
+                        NumberOfElements=""/>
                    
-                    <controls:ListItem ImageSource="tag_fill"
+                    <controls:ListItem
+                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
+                        CommandParameter="AuthorFilterPage"
+                        ImageSource="tag_fill"
                         ItemName="Etiquettes"
-                        NumberOfElements=""
-                        ToGoRoute="AuthorFilterPage"/>
+                        NumberOfElements=""/>
                     
                 </VerticalStackLayout>
                 <BoxView Grid.Row="3"/>
                 <Label Grid.Row="4" Text="Filtres" Style="{StaticResource subtitle}"/>
                 <BoxView Grid.Row="5"/>
                 <VerticalStackLayout Grid.Row="6" Style="{StaticResource grayContainer}">
-                    <controls:ListItem ImageSource="person_fill"
+                    <controls:ListItem 
+                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
+                        CommandParameter="AuthorFilterPage"
+                        ImageSource="person_fill"
                         ItemName="Auteur"
-                        NumberOfElements=""
-                        ToGoRoute="AuthorFilterPage"/>
-                    <controls:ListItem ImageSource="calendar"
+                        NumberOfElements=""/>
+                    <controls:ListItem 
+                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
+                        CommandParameter="DateFilterPage"
+                        ImageSource="calendar"
                         ItemName="Date de publication"
-                        NumberOfElements=""
-                        ToGoRoute="DateFilterPage"/>
-                    <controls:ListItem ImageSource="sparkles"
+                        NumberOfElements=""/>
+                    <controls:ListItem 
+                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
+                        CommandParameter="NoteFilterPage"
+                        ImageSource="sparkles"
                         ItemName="Note"
-                        NumberOfElements=""
-                        ToGoRoute="NoteFilterPage"/>
+                        NumberOfElements=""/>
                 </VerticalStackLayout>
                 <BoxView Grid.Row="7"/>
             </Grid>

@@ -5,15 +5,15 @@
              xmlns:controls="clr-namespace:PocketBook.Components"
              x:Class="PocketBook.Components.BookSection"
              x:Name="root">
-    <Grid ColumnDefinitions="70,20,*" RowDefinitions="*,*" >
+    <Grid ColumnDefinitions="Auto,20,*" RowDefinitions="*,*"  BackgroundColor="Pink">
         <Grid.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding NavigationViewModel.NavigateCommand}" CommandParameter="OneBookPage"/>
+            <TapGestureRecognizer Command="{Binding Command, Source={x:Reference root}}" CommandParameter="{Binding CommandParameter, Source={x:Reference root}}"/>
         </Grid.GestureRecognizers>
-        <controls:BookCover x:Name="coverImage" HeightRequest="120" HorizontalOptions="Start"/>
+        <controls:BookCover ImageSource="{Binding CoverImage, Source={x:Reference root}}" HeightRequest="120" WidthRequest="70" HorizontalOptions="Start"/>
         <VerticalStackLayout Grid.Column="2">
-            <Label x:Name="title" Style="{StaticResource boldLabel}"/>
-            <Label x:Name="authorName" />
-            <Label x:Name="readingStatus" TextColor="Gray"/>
+            <Label Text="{Binding Title, Source={x:Reference root}}" Style="{StaticResource boldLabel}"/>
+            <Label Text="{Binding AuthorName, Source={x:Reference root}}" />
+            <Label Text="{Binding ReadingStatus, Source={x:Reference root}}" TextColor="Gray"/>
             <Grid RowDefinitions="25,Auto" Padding="0"  VerticalOptions="End">
                 <HorizontalStackLayout Grid.Row="1">
                     <Image Source="star" HeightRequest="30" >

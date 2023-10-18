@@ -1,13 +1,21 @@
 using PocketBook.ViewModel;
+using System.Windows.Input;
+using ViewModelWrapper;
 
 namespace PocketBook.Components;
 
 public partial class ListItem : ContentView
 {
-    public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(string), typeof(ListItem), string.Empty);
-    public static readonly BindableProperty ItemNameProperty = BindableProperty.Create(nameof(ItemName), typeof(string), typeof(ListItem), string.Empty);
-    public static readonly BindableProperty NumberOfElementsProperty = BindableProperty.Create(nameof(NumberOfElements), typeof(string), typeof(ListItem), string.Empty);
-    public static readonly BindableProperty ToGoRouteProperty = BindableProperty.Create(nameof(ToGoRoute), typeof(string), typeof(ListItem), string.Empty);
+    public static readonly BindableProperty ImageSourceProperty = 
+        BindableProperty.Create(nameof(ImageSource), typeof(string), typeof(ListItem), string.Empty);
+    public static readonly BindableProperty ItemNameProperty = 
+        BindableProperty.Create(nameof(ItemName), typeof(string), typeof(ListItem), string.Empty);
+    public static readonly BindableProperty NumberOfElementsProperty = 
+        BindableProperty.Create(nameof(NumberOfElements), typeof(string), typeof(ListItem), string.Empty);
+    public static readonly BindableProperty CommandProperty = 
+        BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(ListItem), null);
+    public static readonly BindableProperty CommandParameterProperty = 
+        BindableProperty.Create(nameof(CommandParameter), typeof(object), typeof(ListItem), string.Empty);
 
     public string ImageSource
     {
@@ -24,17 +32,23 @@ public partial class ListItem : ContentView
         get => (string)GetValue(ListItem.NumberOfElementsProperty);
         set => SetValue(ListItem.NumberOfElementsProperty, value);
     }
-    public string ToGoRoute
+
+    public ICommand Command
     {
-        get => (string)GetValue(ListItem.ToGoRouteProperty);
-        set => SetValue(ListItem.ToGoRouteProperty, value);
+        get => GetValue(ListItem.CommandProperty) as ICommand;
+        set => SetValue(ListItem.CommandProperty, value);
     }
 
-    public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
+    public object CommandParameter
+    {
+        get => GetValue(ListItem.CommandParameterProperty);
+        set => SetValue(ListItem.CommandParameterProperty, value);
+    }
+
 
     public ListItem()
 	{
-        BindingContext = this;
 		InitializeComponent();
+        BindingContext = this;
     }
 }

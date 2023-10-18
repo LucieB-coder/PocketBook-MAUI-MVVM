@@ -1,14 +1,23 @@
 using Model;
 using PocketBook.ViewModel;
+using System.Windows.Input;
 
 namespace PocketBook.Components;
 
 public partial class BookSection : ContentView
 {
-    public static readonly BindableProperty CoverImageProperty = BindableProperty.Create(nameof(CoverImage), typeof(string), typeof(BookSection), string.Empty);
-    public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(Title), typeof(string), typeof(BookSection), string.Empty);
-    public static readonly BindableProperty AuthorNameProperty = BindableProperty.Create(nameof(AuthorName), typeof(string), typeof(BookSection), string.Empty);
-    public static readonly BindableProperty ReadingStatusProperty = BindableProperty.Create(nameof(ReadingStatus), typeof(string), typeof(BookSection), string.Empty);
+    public static readonly BindableProperty CoverImageProperty = 
+        BindableProperty.Create(nameof(CoverImage), typeof(string), typeof(BookSection), string.Empty);
+    public static readonly BindableProperty TitleProperty = 
+        BindableProperty.Create(nameof(Title), typeof(string), typeof(BookSection), string.Empty);
+    public static readonly BindableProperty AuthorNameProperty = 
+        BindableProperty.Create(nameof(AuthorName), typeof(string), typeof(BookSection), string.Empty);
+    public static readonly BindableProperty ReadingStatusProperty = 
+        BindableProperty.Create(nameof(ReadingStatus), typeof(string), typeof(BookSection), string.Empty);
+    public static readonly BindableProperty CommandProperty =
+        BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(BookSection), null);
+    public static readonly BindableProperty CommandParameterProperty =
+        BindableProperty.Create(nameof(CommandParameter), typeof(object), typeof(BookSection), null);
 
     public string CoverImage
     {
@@ -33,14 +42,20 @@ public partial class BookSection : ContentView
         set => SetValue(BookSection.ReadingStatusProperty, value);
     }
 
-    public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
+    public ICommand Command
+    {
+        get => (ICommand)GetValue(BookSection.CommandProperty);
+        set => SetValue(BookSection.CommandProperty, value);
+    }
+
+    public object CommandParameter
+    {
+        get => GetValue(BookSection.CommandParameterProperty);
+        set => SetValue(BookSection.CommandParameterProperty, value);
+    }
 
     public BookSection()
 	{
         InitializeComponent();
-        coverImage.SetBinding(Image.SourceProperty,"CoverImage");
-        title.SetBinding(Label.TextProperty, "Title");
-        authorName.SetBinding(Label.TextProperty, "AuthorName");
-        readingStatus.SetBinding(Label.TextProperty, "ReadingStatus");
     }
 }

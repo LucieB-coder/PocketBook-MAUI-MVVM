@@ -3,20 +3,21 @@ using PocketBook.Components;
 using PocketBook.ViewModel;
 using System.Collections.ObjectModel;
 using ViewModelWrapper;
-using Model;
 
 namespace PocketBook.Pages;
 
 public partial class AllBooksPage : ContentPage
-{      
-    public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
-    public BookViewModel BookVM { get; set; }
+{
+    public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel(); 
 
-    public IEnumerable<Book> Books { get; set; }
-    public AllBooksPage(BookViewModel bookVM)
+    public LoadBooksNavigationViewModel LoadNavigationVM { get; set; }
+    public ManagerViewModel ManagerVM { get; set; }
+    public IEnumerable<BookViewModel> Books { get; set; }
+    public AllBooksPage(ManagerViewModel mngVM)
 	{
-        BookVM = bookVM;
-        Books = BookVM.GetAllBooks();
+        LoadNavigationVM = new LoadBooksNavigationViewModel(mngVM);
+        ManagerVM = mngVM;
+        Books = ManagerVM.Books;
         InitializeComponent();
         BindingContext = this;
     }

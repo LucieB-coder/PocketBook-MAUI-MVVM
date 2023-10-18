@@ -10,7 +10,7 @@ namespace Stub
 {
     public class Books
     {
-        public IEnumerable<Book> BookList { get; set; } = new List<Book> 
+        private IEnumerable<Book> books { get; set; } = new List<Book> 
         { 
             new Book { Id = 1, Title = "La horde du contrevent", Description = "wsrhdxtjgfckhygvljbhkmnjl", Authors = new List<int> { 1 }, CoverImage = "la_horde_du_contrevent", Grade = 2, ReadingStatus = "Terminé" },
             new Book { Id = 2, Title = "L'équateur d'Einstein", Description = "wsrhdxtjgfckhygvljbhkmnjl", Authors = new List<int> { 2 }, CoverImage = "l_equateur_d_einstein", Grade = 4, ReadingStatus = "Non lu" },
@@ -22,5 +22,15 @@ namespace Stub
             new Book { Id = 8, Title = "Les Misérables", Description = "wsrhdxtjgfckhygvljbhkmnjl", Authors = new List<int> { 4 }, CoverImage = "les_miserables", Grade = 4, ReadingStatus = "Terminé" },
             new Book { Id = 9, Title = "Captive", Description = "wsrhdxtjgfckhygvljbhkmnjl", Authors = new List<int> { 5 }, CoverImage = "captive", Grade = 3, ReadingStatus = "En cours" }
         };
+        public IEnumerable<Book> BookList {
+            get
+            {
+                return books;
+            }
+            set 
+            {
+                books = value;
+            } 
+        }
     }
 }

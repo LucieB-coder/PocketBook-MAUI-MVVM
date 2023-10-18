@@ -22,10 +22,14 @@ namespace PocketBook
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-                builder.Services.AddTransient<ILibraryManager, Stub.Stub>();
-                builder.Services.AddTransient <BookViewModel>();
-                builder.Services.AddTransient<AllBooksPage>();
 
+
+            builder.Services.AddSingleton<ILibraryManager, Stub.Stub>();
+            builder.Services.AddSingleton<ManagerViewModel>();
+            builder.Services.AddSingleton<BookViewModel>();
+            builder.Services.AddSingleton<AllBooksPage>();
+            builder.Services.AddSingleton<LibraryPage>();
+            builder.Services.AddSingleton<OneBookPage>();
 
 
 #if DEBUG
