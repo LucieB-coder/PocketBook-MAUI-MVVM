@@ -23,17 +23,12 @@ namespace Model
         public Task<Book> GetBookById(int id)
             => libraryManager.GetBookById(id);
 
-        public Author GetAuthorById(int id)
-            => libraryManager.GetAuthorById(id);
 
         public Task<IEnumerable<Book>> GetAllBooks()
         {
             return libraryManager.GetAllBooks();
         }
        
-        public IEnumerable<Book> GetBooksByAuthor(int authorId)
-            => libraryManager.GetBooksByAuthor(authorId);
-
         #endregion
 
         #region Constructor

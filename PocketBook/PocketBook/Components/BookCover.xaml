@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PocketBook.Components.BookCover"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Name="root"
              >
     <Grid Padding="0" RowDefinitions="Auto,Auto,Auto" >
         <Border ZIndex="2" Style="{StaticResource bookCover}" StrokeShape="RoundRectangle 5,2,0,0" Grid.Column="1">
-            <Image Source="les_miserables" Margin="5"/>
+            <Image Source="{Binding ImageSource, Source ={x:Reference root}}" Margin="5"/>
         </Border>
         <Border ZIndex="0" Style="{StaticResource bookCover}" StrokeShape="RoundRectangle 0,0,5,2" Margin="0,-5,0,0" Grid.Column="1" Grid.Row="1">
             <BoxView Color="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}" HeightRequest="4" Margin="5"/>

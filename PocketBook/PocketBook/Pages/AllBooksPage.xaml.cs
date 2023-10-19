@@ -12,7 +12,7 @@ public partial class AllBooksPage : ContentPage
 
     public LoadBooksNavigationViewModel LoadNavigationVM { get; set; }
     public ManagerViewModel ManagerVM { get; set; }
-    public IEnumerable<BookViewModel> Books { get; set; }
+    public IEnumerable<BookGroupViewModel> Books { get; set; }
     public AllBooksPage(ManagerViewModel mngVM)
 	{
         LoadNavigationVM = new LoadBooksNavigationViewModel(mngVM);

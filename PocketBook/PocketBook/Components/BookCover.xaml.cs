@@ -12,6 +12,5 @@ public partial class BookCover : ContentView
     public BookCover()
 	{
 		InitializeComponent();
-        BindingContext = this;
 	}
 }

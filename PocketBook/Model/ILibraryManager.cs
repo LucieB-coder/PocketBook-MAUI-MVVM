@@ -9,8 +9,6 @@ namespace Model
     public interface ILibraryManager
     {
         Task<Book> GetBookById(int id);
-        Author GetAuthorById(int id);
         Task<IEnumerable<Book>> GetAllBooks();
-        IEnumerable<Book> GetBooksByAuthor(int authorId);
     }
 }

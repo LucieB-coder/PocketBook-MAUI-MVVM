@@ -13,16 +13,23 @@ namespace ViewModelWrapper
     {
         public Manager Model { get; set; }
 
-        public ObservableCollection<BookViewModel> Books { get; set; } = new ObservableCollection<BookViewModel>();
+        public ObservableCollection<BookGroupViewModel> Books { get; set; } = new ObservableCollection<BookGroupViewModel>();
         public BookViewModel BookVM { get; set; } = new BookViewModel();
 
         public async void GetAllBooks()
         {
             var books = await Model.GetAllBooks();
+            IEnumerable<string> authors = books.Select(book => book.Author).Distinct();
             Books.Clear();
-            foreach(var book in books)
+            foreach(var author in authors)
             {
-                Books.Add(new BookViewModel(book));
+                var bookList = books.Where(book => book.Author.Equals(author));
+                List<BookViewModel> booksViewModel = new List<BookViewModel>();
+                foreach(var book in bookList)
+                {
+                    booksViewModel.Add(new BookViewModel(book));
+                }
+                Books.Add(new BookGroupViewModel(author,booksViewModel));
             }
         }
 

@@ -13,7 +13,7 @@ namespace ViewModelWrapper
         public int Id { get => Model.Id; }
         public string Title { get => Model.Title; }
         public string Description { get => Model.Description; }
-        public IEnumerable<int> Authors { get => Model.Authors; }
+        public string Author { get => Model.Author; }
         public string CoverImage { get => Model.CoverImage; }
         public string ReadingStatus { get => Model.ReadingStatus; }
         public int Grade { get => Model.Grade; }

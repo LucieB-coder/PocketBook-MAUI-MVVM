@@ -39,37 +39,31 @@
             <Grid Padding="0">
                 <controls:AddBookPopup x:Name="popup" ZIndex="0"/>
 
-               <!-- <CollectionView ZIndex="1" x:Name="DisplayedCollection" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
+                <CollectionView x:Name="BookList" IsGrouped="True" ItemsSource="{Binding Books}" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
+                    <CollectionView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource grayContainer}" StrokeThickness="0" Padding="10,5,5,5">
+                                <Label 
+                                    Text="{Binding AuthorName}"
+                                    Style="{StaticResource authorName}"
+                                    HorizontalOptions="Start"/>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.GroupHeaderTemplate>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout>
-                                <Border Style="{StaticResource grayContainer}" StrokeThickness="0" Padding="10,5,5,5">
-                                    <Label 
-                                        Text="{Binding Name}"
-                                        Style="{StaticResource authorName}"
-                                        HorizontalOptions="Start"/> 
-                                </Border> -->
-
-                                <CollectionView x:Name="BookList" ItemsSource="{Binding Books}" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
-                                    <CollectionView.ItemTemplate>
-                                        <DataTemplate>
-                                            <Grid ColumnDefinitions="7,Auto,*,Auto" RowDefinitions="*,*,*,*" Padding="0">
-                                                <controls:BookSection Grid.Column="1" 
-                                                                      Grid.Row="1" CoverImage="{Binding CoverImage}" 
-                                                                      Title="{Binding Title}" 
-                                                                      AuthorName="oui" 
-                                                                      ReadingStatus="{Binding ReadingStatus}" 
-                                                                      Command="{Binding Path=LoadNavigationVM.NavigateToBookDetailsCommand, Source={x:Reference root}}" 
-                                                                      CommandParameter="{Binding Id}"/>
-                                                <BoxView  Grid.ColumnSpan="3" Grid.Column="1"  Grid.Row="2" Margin="10,15,0,0"/>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </CollectionView.ItemTemplate>
-                                </CollectionView>
-                      <!--      </StackLayout>
+                            <Grid Padding="0">
+                                <controls:BookSection 
+                                                    CoverImage="{Binding CoverImage}" 
+                                                    Title="{Binding Title}" 
+                                                    AuthorName="{Binding Author}" 
+                                                    ReadingStatus="{Binding ReadingStatus}" 
+                                                    Command="{Binding Path=LoadNavigationVM.NavigateToBookDetailsCommand, Source={x:Reference root}}" 
+                                                    CommandParameter="{Binding Id}"/>
+                            </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-                </CollectionView> -->
+                </CollectionView>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
