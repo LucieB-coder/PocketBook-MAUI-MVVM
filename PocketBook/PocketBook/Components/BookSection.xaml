@@ -5,42 +5,16 @@
              xmlns:controls="clr-namespace:PocketBook.Components"
              x:Class="PocketBook.Components.BookSection"
              x:Name="root">
-    <Grid ColumnDefinitions="Auto,*" RowDefinitions="*,*" BackgroundColor="pink">
+    <Grid ColumnDefinitions="Auto,*" RowDefinitions="*,Auto">
         <Grid.GestureRecognizers>
             <TapGestureRecognizer Command="{Binding Command, Source={x:Reference root}}" CommandParameter="{Binding CommandParameter, Source={x:Reference root}}"/>
         </Grid.GestureRecognizers>
         <controls:BookCover ImageSource="{Binding CoverImage, Source={x:Reference root}}" Margin="0,0,5,0" WidthRequest="70" HorizontalOptions="Start"/>
-        <Grid Grid.Column="1" RowDefinitions="Auto,Auto,Auto,Auto" BackgroundColor="LightGreen">
+        <Grid Grid.Column="1" RowDefinitions="Auto,Auto,Auto,*">
             <Label Text="{Binding Title, Source={x:Reference root}}" Style="{StaticResource boldLabel}"/>
             <Label Grid.Row="1" Text="{Binding AuthorName, Source={x:Reference root}}" />
             <Label Grid.Row="2" Text="{Binding ReadingStatus, Source={x:Reference root}}" TextColor="Gray"/>
-            <Grid Grid.Row="3" Margin="0,20,0,0 " Padding="0" VerticalOptions="End">
-                <Image Source="star" HeightRequest="30" >
-                    <Image.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
-                    </Image.Behaviors>
-                </Image>
-                <Image Source="star" HeightRequest="30" >
-                    <Image.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
-                    </Image.Behaviors>
-                </Image>
-                <Image Source="star" HeightRequest="30" >
-                    <Image.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
-                    </Image.Behaviors>
-                </Image>
-                <Image Source="star" HeightRequest="30" >
-                    <Image.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
-                    </Image.Behaviors>
-                </Image>
-                <Image Source="star" HeightRequest="30" >
-                    <Image.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
-                    </Image.Behaviors>
-                </Image>
-            </Grid>
+            <controls:Grades Grid.Row="3" Margin="0,20,0,0"/>
         </Grid>
         <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
     </Grid>
