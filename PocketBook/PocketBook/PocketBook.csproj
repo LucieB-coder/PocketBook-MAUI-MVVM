@@ -91,8 +91,8 @@
 	  <Compile Update="MainPage - Copier.xaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\AuthorFilterPage.xaml.cs">
-	    <DependentUpon>AuthorFilterPage.xaml</DependentUpon>
+	  <Compile Update="Pages\FilterPage.xaml.cs">
+	    <DependentUpon>FilterPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Properties\Resources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -133,10 +133,7 @@
 	  <MauiXaml Update="Pages\AllBooksPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\AuthorFilterPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\DateFilterPage.xaml">
+	  <MauiXaml Update="Pages\FilterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\LendBooksPage.xaml">
@@ -149,9 +146,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MainPage - Copier.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\NoteFilterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\OneBookPage.xaml">

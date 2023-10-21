@@ -3,26 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PocketBook.Components.FilterListItem"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:controls="clr-namespace:PocketBook.Components">
-    <Grid ColumnDefinitions="10,Auto,20,*,*,Auto" RowDefinitions="*,*" >
+             xmlns:controls="clr-namespace:PocketBook.Components"
+             x:Name="root">
+    <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto" >
         <Grid.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding NavigationViewModel.NavigateCommand}" CommandParameter="LibraryPage"/>
+            <TapGestureRecognizer Command="{Binding NavigationViewModel.NavigateCommand, Source={x:Reference root}}" CommandParameter="LibraryPage"/>
         </Grid.GestureRecognizers>
-        <Image Source="book" Grid.Column="1" HeightRequest="30">
+        <Image Source="book" HeightRequest="30" Margin="10,0,20,0">
             <Image.Behaviors>
                 <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
             </Image.Behaviors>
         </Image>
-        <Label Text="{Binding AuthorName}" Grid.Column="3"/>
-        <HorizontalStackLayout Grid.Column="4" HorizontalOptions="End">
-            <Label Text="{Binding NumberOfElements}" TextColor="Gray"/>
-            <Image Source="chevron_right" HeightRequest="30">
+        <Label Grid.Column="1" Text="{Binding Name, Source={x:Reference root}}"/>
+        <Grid Grid.Column="2" Padding="0">
+            <Label Text="{Binding NumberOfElements, Source={x:Reference root}}" TextColor="Gray" VerticalOptions="Center"/>
+            <Image Source="chevron_right" HeightRequest="30" Margin="10,0,0,0" VerticalOptions="Center">
                 <Image.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="Gray" />
                 </Image.Behaviors>
             </Image>
-
-        </HorizontalStackLayout>
-        <BoxView Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Margin="0,7,0,0"/>
+        </Grid>
+        <BoxView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,7,0,0"/>
     </Grid>
 </ContentView>

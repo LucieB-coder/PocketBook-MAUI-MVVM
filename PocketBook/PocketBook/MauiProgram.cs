@@ -30,7 +30,7 @@ namespace PocketBook
             builder.Services.AddSingleton<AllBooksPage>();
             builder.Services.AddSingleton<LibraryPage>();
             builder.Services.AddSingleton<OneBookPage>();
-
+            builder.Services.AddSingleton<FilterPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

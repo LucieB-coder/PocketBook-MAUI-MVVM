@@ -4,12 +4,12 @@ namespace PocketBook.Components;
 
 public partial class FilterListItem : ContentView
 {
-    public static readonly BindableProperty AuthorNameProperty = BindableProperty.Create(nameof(AuthorName), typeof(string), typeof(FilterListItem), string.Empty);
+    public static readonly BindableProperty NameProperty = BindableProperty.Create(nameof(Name), typeof(string), typeof(FilterListItem), string.Empty);
     public static readonly BindableProperty NumberOfElementsProperty = BindableProperty.Create(nameof(NumberOfElements), typeof(string), typeof(FilterListItem), string.Empty);
-    public string AuthorName
+    public string Name
     {
-        get => (string)GetValue(FilterListItem.AuthorNameProperty);
-        set => SetValue(FilterListItem.AuthorNameProperty, value);
+        get => (string)GetValue(FilterListItem.NameProperty);
+        set => SetValue(FilterListItem.NameProperty, value);
     }
 
     public string NumberOfElements
@@ -23,7 +23,6 @@ public partial class FilterListItem : ContentView
     public FilterListItem()
 	{
 		InitializeComponent();
-        BindingContext = this;
 	}
 
 }

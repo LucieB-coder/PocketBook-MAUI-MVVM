@@ -11,9 +11,7 @@ namespace PocketBook
             Routing.RegisterRoute(nameof(AllBooksPage),typeof(AllBooksPage));
             Routing.RegisterRoute(nameof(OneBookPage), typeof(OneBookPage));
             Routing.RegisterRoute(nameof(LendBooksPage), typeof(LendBooksPage));
-            Routing.RegisterRoute(nameof(AuthorFilterPage), typeof(AuthorFilterPage));
-            Routing.RegisterRoute(nameof(DateFilterPage), typeof(DateFilterPage));
-            Routing.RegisterRoute(nameof(NoteFilterPage), typeof(NoteFilterPage));
+            Routing.RegisterRoute(nameof(FilterPage), typeof(FilterPage));
         }
     }
 }

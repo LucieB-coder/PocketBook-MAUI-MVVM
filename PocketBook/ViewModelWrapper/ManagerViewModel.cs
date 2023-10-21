@@ -12,11 +12,13 @@ namespace ViewModelWrapper
     public class ManagerViewModel : BaseViewModelWrapper<ManagerViewModel>
     {
         public Manager Model { get; set; }
-
+        public int Filter { get; set; } 
+        public ObservableCollection<FilterItemViewModel> FilteredItemList { get; set; } = new ObservableCollection<FilterItemViewModel>();
         public ObservableCollection<BookGroupViewModel> Books { get; set; } = new ObservableCollection<BookGroupViewModel>();
         public BookViewModel BookVM { get; set; } = new BookViewModel();
         public async void GetAllBooks()
         {
+            
             var books = await Model.GetAllBooks();
             IEnumerable<string> authors = books.Select(book => book.Author).Distinct();
             Books.Clear();
@@ -47,13 +49,54 @@ namespace ViewModelWrapper
             }
         }
 
-        public void ReverseList()
+        public void ReverseList(string list)
         {
-            var reversedList=Books.Reverse().ToList();
-            Books.Clear();
-            foreach (var bookgroup in reversedList)
+            switch (list)
             {
-                Books.Add(bookgroup);
+                case "books":
+                    var reversedBooksList = Books.Reverse().ToList();
+                    Books.Clear();
+                    foreach (var bookgroup in reversedBooksList)
+                    {
+                        Books.Add(bookgroup);
+                    }
+                    break;
+                case "filters":
+                    var reversedFiltersList = FilteredItemList.Reverse().ToList();
+                    FilteredItemList.Clear();
+                    foreach (var filterItem in reversedFiltersList)
+                    {
+                        FilteredItemList.Add(filterItem);
+                    }
+                    break;
+
+            }
+            
+        }
+
+        public async void GetAuthorsList()
+        {
+            Filter= 1;
+            var books = await Model.GetAllBooks();
+            IEnumerable<string> authors = books.Select(book => book.Author).Distinct();
+            FilteredItemList.Clear();
+            foreach(var author in authors)
+            {
+                int countBooks = books.Count(book => book.Author == author);
+                FilteredItemList.Add(new FilterItemViewModel(author,countBooks.ToString()));
+            }
+        }
+
+        public async void GetGradesList()
+        {
+            Filter = 3;
+            var books = await Model.GetAllBooks();
+            IEnumerable<int> grades = books.Select(book => book.Grade).Distinct();
+            FilteredItemList.Clear();
+            foreach(var grade in grades)
+            {
+                int countBooks = books.Count(book => book.Grade == grade);
+                FilteredItemList.Add(new FilterItemViewModel(grade.ToString(), countBooks.ToString()));
             }
         }
 

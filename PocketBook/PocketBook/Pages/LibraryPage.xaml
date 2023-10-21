@@ -72,20 +72,20 @@
                 <BoxView Grid.Row="5"/>
                 <VerticalStackLayout Grid.Row="6" Style="{StaticResource grayContainer}">
                     <controls:ListItem 
-                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
-                        CommandParameter="AuthorFilterPage"
+                        Command="{Binding ListManagerVM.GetFilterListCommand, Source={x:Reference root}}"
+                        CommandParameter="author"
                         ImageSource="person_fill"
                         ItemName="Auteur"
                         NumberOfElements=""/>
                     <controls:ListItem 
-                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
-                        CommandParameter="DateFilterPage"
+                        Command="{Binding ListManagerVM.GetFilterListCommand, Source={x:Reference root}}"
+                        CommandParameter="author"
                         ImageSource="calendar"
                         ItemName="Date de publication"
                         NumberOfElements=""/>
                     <controls:ListItem 
-                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
-                        CommandParameter="NoteFilterPage"
+                        Command="{Binding ListManagerVM.GetFilterListCommand, Source={x:Reference root}}"
+                        CommandParameter="grade"
                         ImageSource="sparkles"
                         ItemName="Note"
                         NumberOfElements=""/>
