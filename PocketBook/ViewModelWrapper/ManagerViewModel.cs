@@ -55,6 +55,37 @@ namespace ViewModelWrapper
             }
         }
 
+        public async void GetLends()
+        {
+            var lends = await Model.GetLends();
+            Books.Clear();
+            foreach(var lend in lends)
+            {
+                List<BookViewModel> booksViewModel = new List<BookViewModel>();
+                foreach (var bookId in lend.BookIdsBorrowed)
+                {
+                    var book = await Model.GetBookById(bookId);
+                    booksViewModel.Add(new BookViewModel(book));
+                }
+                Books.Add(new BookGroupViewModel(lend.PersonName, booksViewModel));
+            }
+        }
+
+        public async void GetBorrows()
+        {
+            var lends = await Model.GetBorrows();
+            Books.Clear();
+            foreach (var lend in lends)
+            {
+                List<BookViewModel> booksViewModel = new List<BookViewModel>();
+                foreach (var bookId in lend.BookIdsBorrowed)
+                {
+                    booksViewModel.Add(new BookViewModel(await Model.GetBookById(bookId)));
+                }
+                Books.Add(new BookGroupViewModel(lend.PersonName, booksViewModel));
+            }
+        }
+
         public async void GetBooksByGrade(string grade)
         {
             var books = await Model.GetAllBooks();
@@ -120,7 +151,7 @@ namespace ViewModelWrapper
 
         public async void GetAuthorsList()
         {
-            Filter= 1;
+            Filter = 1;
             var books = await Model.GetAllBooks();
             IEnumerable<string> authors = books.Select(book => book.Author).Distinct();
             FilteredItemList.Clear();
@@ -157,9 +188,9 @@ namespace ViewModelWrapper
             }
         }
 
-        public ManagerViewModel(ILibraryManager libMng)
+        public ManagerViewModel(ILibraryManager libMng, IUserLibraryManager userLibMng)
         {
-            Model = new Manager(libMng);
+            Model = new Manager(libMng,userLibMng);
         }
 
     }

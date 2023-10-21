@@ -18,16 +18,30 @@ namespace PocketBook.ViewModel
 
         public ICommand ReverseListCommand { get; set; }
         public ICommand GetFilterListCommand { get;set; }
+        public ICommand GetLendsCommand { get; set; }
+        public ICommand GetBorrowsCommand { get; set; }
         public ListManagerViewModel(ManagerViewModel mngVm)
         {
             ManagerVM = mngVm;
             ReverseListCommand = new Command<string>(ReverseList);
             GetFilterListCommand = new Command<string>(GetFilterList);
+            GetLendsCommand = new Command(GetLends);
+            GetBorrowsCommand = new Command(GetBorrows);
         }
 
         private void ReverseList(string list)
         {
             ManagerVM.ReverseList(list);
+        }
+
+        private void GetLends()
+        {
+            ManagerVM.GetLends();
+        }
+
+        private void GetBorrows()
+        {
+            ManagerVM.GetBorrows();
         }
 
         private void GetFilterList(string filter) 
@@ -37,22 +51,19 @@ namespace PocketBook.ViewModel
             {
                 case "author":
                     ManagerVM.GetAuthorsList();
-                    navVM.NavigateCommand.Execute("FilterPage");
+                    
                     break;
                 case "date":
                     ManagerVM.GetDatesList();
-                    navVM.NavigateCommand.Execute("FilterPage");
                     break;
                 case "grade":
                     ManagerVM.GetGradesList();
-                    navVM.NavigateCommand.Execute("FilterPage");
                     break;
                 default:
-                    {
-                        ManagerVM.GetAllBooks();
-                        break;
-                    }
+                    ManagerVM.GetAllBooks();
+                    break;
             }
+            navVM.NavigateCommand.Execute("FilterPage");
         }
     }
 }

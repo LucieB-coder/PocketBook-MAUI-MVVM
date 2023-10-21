@@ -44,7 +44,7 @@
                         <DataTemplate>
                             <Border Style="{StaticResource grayContainer}" StrokeThickness="0" Padding="10,5,5,5">
                                 <Label 
-                                    Text="{Binding AuthorName}"
+                                    Text="{Binding Name}"
                                     Style="{StaticResource authorName}"
                                     HorizontalOptions="Start"/>
                             </Border>

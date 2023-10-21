@@ -8,11 +8,11 @@ namespace ViewModelWrapper
 {
     public class BookGroupViewModel : List<BookViewModel>
     {
-        public string AuthorName { get; set; }
+        public string Name { get; set; }
 
         public BookGroupViewModel(string authorName, List<BookViewModel> books) : base(books)
         {  
-            AuthorName = authorName; 
+            Name = authorName; 
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Model
         #region Fields
 
         private ILibraryManager libraryManager { get; set; }
+        private IUserLibraryManager userLibraryManager { get; set; }
 
         public IEnumerable<Book> Books { get; set; }
         private List<Book> books = new();
@@ -28,14 +29,21 @@ namespace Model
         {
             return libraryManager.GetAllBooks();
         }
-       
+
+        public Task<IEnumerable<Lend>> GetLends()
+            => userLibraryManager.GetLends();
+
+        public Task<IEnumerable<Lend>> GetBorrows()
+            => userLibraryManager.GetBorrows();
+
         #endregion
 
         #region Constructor
 
-        public Manager(ILibraryManager libraryManager)
+        public Manager(ILibraryManager libraryManager, IUserLibraryManager userLibraryManager)
         {
             this.libraryManager = libraryManager;
+            this.userLibraryManager = userLibraryManager;
             Books = new ReadOnlyCollection<Book>(books);
         }
 

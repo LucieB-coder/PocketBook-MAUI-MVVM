@@ -1,14 +1,25 @@
+using Android.Net.Wifi.Aware;
 using PocketBook.ViewModel;
 using System.Collections.ObjectModel;
+using ViewModelWrapper;
 
 namespace PocketBook.Pages;
 
 public partial class LendBooksPage : ContentPage
 {
     public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
+    public ManagerViewModel ManagerVM { get; set; }
+    public LoadBooksNavigationViewModel LoadBooksNavigationVM { get; set; }
+    public ListManagerViewModel ListManagerVM { get; set; }
 
-    public LendBooksPage()
+    public IEnumerable<BookGroupViewModel> Lends { get; set; } 
+
+    public LendBooksPage(ManagerViewModel mngVM)
     {
+        ManagerVM = mngVM;
+        LoadBooksNavigationVM = new LoadBooksNavigationViewModel(mngVM);
+        ListManagerVM = new ListManagerViewModel(mngVM);
+        Lends = ManagerVM.Books;
         InitializeComponent();
         BindingContext = this;
     }
@@ -19,7 +30,7 @@ public partial class LendBooksPage : ContentPage
         RentsButton.BackgroundColor = Colors.Transparent;
 
     }
-     void OnRentsClicked(object sender, EventArgs args)
+     void OnBorrowsClicked(object sender, EventArgs args)
     {
         LendsButton.BackgroundColor = Colors.Transparent;
         RentsButton.BackgroundColor = Colors.White;

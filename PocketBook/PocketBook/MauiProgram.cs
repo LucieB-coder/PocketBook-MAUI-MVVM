@@ -25,12 +25,14 @@ namespace PocketBook
 
 
             builder.Services.AddSingleton<ILibraryManager, Stub.Stub>();
+            builder.Services.AddSingleton<IUserLibraryManager, Stub.Stub>();
             builder.Services.AddSingleton<ManagerViewModel>();
             builder.Services.AddSingleton<BookViewModel>();
             builder.Services.AddSingleton<AllBooksPage>();
             builder.Services.AddSingleton<LibraryPage>();
             builder.Services.AddSingleton<OneBookPage>();
             builder.Services.AddSingleton<FilterPage>();
+            builder.Services.AddSingleton<LendBooksPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();
