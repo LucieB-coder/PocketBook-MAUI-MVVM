@@ -74,6 +74,52 @@ namespace ViewModelWrapper
             }
         }
 
+        public DateTime AddedOnLibraryDate 
+        {
+            get => Model.AddedOnLibraryDate;
+            set
+            {
+                Model.AddedOnLibraryDate = value;
+                OnPropertyChanged();
+            }
+        }
+        public double NumberOfPages 
+        {
+            get => Model.NumberOfPages;
+            set
+            {
+                Model.NumberOfPages = value;
+                OnPropertyChanged();
+            }
+        }
+        public string ISBN 
+        {
+            get => Model.ISBN;
+            set
+            {
+                Model.ISBN = value;
+                OnPropertyChanged();
+            }
+        }
+        public string PublishingHouse 
+        {
+            get => Model.PublishingHouse;
+            set
+            {
+                Model.PublishingHouse = value;
+                OnPropertyChanged();
+            }
+        }
+        public int ParutionYear 
+        {
+            get => Model.ParutionYear;
+            set
+            {
+                Model.ParutionYear = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region constructor

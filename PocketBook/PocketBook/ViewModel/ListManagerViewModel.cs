@@ -39,6 +39,10 @@ namespace PocketBook.ViewModel
                     ManagerVM.GetAuthorsList();
                     navVM.NavigateCommand.Execute("FilterPage");
                     break;
+                case "date":
+                    ManagerVM.GetDatesList();
+                    navVM.NavigateCommand.Execute("FilterPage");
+                    break;
                 case "grade":
                     ManagerVM.GetGradesList();
                     navVM.NavigateCommand.Execute("FilterPage");

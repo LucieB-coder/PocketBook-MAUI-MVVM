@@ -49,7 +49,7 @@
                 </Grid>
                 <Grid ColumnDefinitions="7,*" RowDefinitions="5,*,*,14,*" Grid.Row="3">
                     <Label Style="{StaticResource boldLabel}" Text="Maison d'édition" Grid.Column="1" Grid.Row="1" />
-                    <Label FontSize="20" TextColor="{StaticResource Gray500}" Text="Gallimard (2015)" Grid.Column="1" Grid.Row="2" />
+                    <Label FontSize="20" TextColor="{StaticResource Gray500}" Text="{Binding Book.PublishingHouse, Source={x:Reference root}}" Grid.Column="1" Grid.Row="2" />
                     <BoxView Grid.Row="4" Grid.Column="1"/>
                 </Grid>
                 <Grid ColumnDefinitions="7,*,10" RowDefinitions="5,*, *, *,14,*" Grid.Row="4">
@@ -62,9 +62,9 @@
                     <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="Nombre de pages" Grid.Column="1" Grid.Row="2" />
                     <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="Langue" Grid.Column="1" Grid.Row="3" />
                     <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="ISBN" Grid.Column="1" Grid.Row="4" />
-                    <Label Style="{StaticResource bookDetails}" Text="700" Grid.Column="3" Grid.Row="2" />
+                    <Label Style="{StaticResource bookDetails}" Text="{Binding Book.NumberOfPages, Source={x:Reference root}}" Grid.Column="3" Grid.Row="2" />
                     <Label Style="{StaticResource bookDetails}" Text="français" Grid.Column="3" Grid.Row="3" />
-                    <Label Style="{StaticResource bookDetails}" Text="9782070464234" Grid.Column="3" Grid.Row="4" />
+                    <Label Style="{StaticResource bookDetails}" Text="{Binding Book.ISBN, Source={x:Reference root}}" Grid.Column="3" Grid.Row="4" />
                     <BoxView Grid.Row="6" Grid.ColumnSpan="5" />
                 </Grid>
                 <Grid ColumnDefinitions="7,Auto,*,Auto,14" RowDefinitions="5,*,*,*,*,12,*" Grid.Row="6">
@@ -76,7 +76,7 @@
                 <Grid ColumnDefinitions="7,Auto,*,Auto,14" RowDefinitions="5,*,*,*,*,12,*" Grid.Row="7">
                     <Label Style="{StaticResource boldLabel}" Text="Bibliothèque" Grid.Column="1" Grid.Row="1" />
                     <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="Ajouté le" Grid.Column="1" Grid.Row="2" />
-                    <Label Style="{StaticResource bookDetails}" Text="10 Août 2023" Grid.Column="3" Grid.Row="2" />
+                    <Label Style="{StaticResource bookDetails}" Text="{Binding Book.AddedOnLibraryDate, Source={x:Reference root}}" Grid.Column="3" Grid.Row="2" />
                     <BoxView Grid.Row="6" Grid.ColumnSpan="5"/>
                 </Grid>
                 <Grid ColumnDefinitions="7,*" RowDefinitions="100,*" Grid.Row="8">

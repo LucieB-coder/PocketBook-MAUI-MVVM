@@ -79,7 +79,7 @@
                         NumberOfElements=""/>
                     <controls:ListItem 
                         Command="{Binding ListManagerVM.GetFilterListCommand, Source={x:Reference root}}"
-                        CommandParameter="author"
+                        CommandParameter="date"
                         ImageSource="calendar"
                         ItemName="Date de publication"
                         NumberOfElements=""/>

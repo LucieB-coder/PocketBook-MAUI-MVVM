@@ -43,9 +43,15 @@ namespace ViewModelWrapper
                 BookVM.Id = bookViewModel.Id;
                 BookVM.Title = bookViewModel.Title;
                 BookVM.Author = bookViewModel.Author;
+                BookVM.Description = bookViewModel.Description;
                 BookVM.CoverImage = bookViewModel.CoverImage;
                 BookVM.ReadingStatus = bookViewModel.ReadingStatus;
                 BookVM.Grade = bookViewModel.Grade;
+                BookVM.AddedOnLibraryDate = bookViewModel.AddedOnLibraryDate;
+                BookVM.NumberOfPages = bookViewModel.NumberOfPages;
+                BookVM.ISBN = bookViewModel.ISBN;
+                BookVM.PublishingHouse = bookViewModel.PublishingHouse;
+                BookVM.ParutionYear = bookViewModel.ParutionYear;
             }
         }
 
@@ -97,6 +103,19 @@ namespace ViewModelWrapper
             {
                 int countBooks = books.Count(book => book.Grade == grade);
                 FilteredItemList.Add(new FilterItemViewModel(grade.ToString(), countBooks.ToString()));
+            }
+        }
+
+        public async void GetDatesList()
+        {
+            Filter = 2;
+            var books = await Model.GetAllBooks();
+            IEnumerable<int> dates = books.Select(book => book.ParutionYear).Distinct();
+            FilteredItemList.Clear();
+            foreach (var date in dates)
+            {
+                int countBooks = books.Count(book => book.ParutionYear == date);
+                FilteredItemList.Add(new FilterItemViewModel(date.ToString(), countBooks.ToString()));
             }
         }
 
