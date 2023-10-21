@@ -28,11 +28,18 @@ namespace PocketBook.ViewModel
 
         private async void NavigateToBooksPage(string filter)
         {
-            switch (filter)
+            if (filter == "all") ManagerVM.GetAllBooks();
+            switch (filter.Length)
             {
+                case 1:
+                    ManagerVM.GetBooksByGrade(filter);
+                    break;
+                case 4:
+                    ManagerVM.GetBooksByDate(filter);
+                    break;
                 default:
                     {
-                        ManagerVM.GetAllBooks();
+                        ManagerVM.GetBooksByAuthor(filter);
                         break;
                     }
             }

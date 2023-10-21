@@ -55,6 +55,44 @@ namespace ViewModelWrapper
             }
         }
 
+        public async void GetBooksByGrade(string grade)
+        {
+            var books = await Model.GetAllBooks();
+            IEnumerable<Book> booksWithGivenGrade = books.Where(book=>book.Grade == int.Parse(grade));
+            Books.Clear();
+            List<BookViewModel> booksViewModel = new List<BookViewModel>();
+            foreach (var book in booksWithGivenGrade)
+            { 
+                booksViewModel.Add(new BookViewModel(book));
+            }
+            Books.Add(new BookGroupViewModel(grade, booksViewModel));
+        }
+        public async void GetBooksByDate(string date)
+        {
+            var books = await Model.GetAllBooks();
+            IEnumerable<Book> booksWithGivenDate = books.Where(book => book.ParutionYear == int.Parse(date));
+            Books.Clear();
+            List<BookViewModel> booksViewModel = new List<BookViewModel>();
+            foreach (var book in booksWithGivenDate)
+            {
+                booksViewModel.Add(new BookViewModel(book));
+            }
+            Books.Add(new BookGroupViewModel(date, booksViewModel));
+        }
+
+        public async void GetBooksByAuthor(string author)
+        {
+            var books = await Model.GetAllBooks();
+            IEnumerable<Book> booksWithGivenAuthor = books.Where(book => book.Author == author);
+            Books.Clear();
+            List<BookViewModel> booksViewModel = new List<BookViewModel>();
+            foreach (var book in booksWithGivenAuthor)
+            {
+                booksViewModel.Add(new BookViewModel(book));
+            }
+            Books.Add(new BookGroupViewModel(author, booksViewModel));
+        }
+
         public void ReverseList(string list)
         {
             switch (list)

@@ -6,6 +6,7 @@ namespace PocketBook.Pages;
 public partial class FilterPage : ContentPage
 {
     public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
+    public LoadBooksNavigationViewModel LoaderDataVM { get; set; }
     public ListManagerViewModel ListManagerVM { get; set; }
     public ManagerViewModel ManagerVM { get; set; }
 	public IEnumerable<FilterItemViewModel> Authors { get; set; }
@@ -13,6 +14,7 @@ public partial class FilterPage : ContentPage
 	{
 		ManagerVM = mngVM;
         ListManagerVM = new ListManagerViewModel(mngVM);
+        LoaderDataVM = new LoadBooksNavigationViewModel(mngVM);
 		Authors = ManagerVM.FilteredItemList;
 		InitializeComponent();
         switch (ManagerVM.Filter)
