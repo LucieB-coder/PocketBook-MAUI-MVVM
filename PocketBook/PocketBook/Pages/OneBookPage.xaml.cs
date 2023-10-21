@@ -15,7 +15,7 @@ public partial class OneBookPage : ContentPage
 	{
         ManagerVM = mngVM;
         Book = ManagerVM.BookVM;
-        BindingContext = this;
         InitializeComponent();
+        BindingContext = this;
     }
 }

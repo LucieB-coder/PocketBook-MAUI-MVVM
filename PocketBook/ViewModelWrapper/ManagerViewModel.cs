@@ -15,7 +15,6 @@ namespace ViewModelWrapper
 
         public ObservableCollection<BookGroupViewModel> Books { get; set; } = new ObservableCollection<BookGroupViewModel>();
         public BookViewModel BookVM { get; set; } = new BookViewModel();
-
         public async void GetAllBooks()
         {
             var books = await Model.GetAllBooks();
@@ -35,8 +34,17 @@ namespace ViewModelWrapper
 
         public async void GetBookById(int id)
         {
-            var book = await  Model.GetBookById(id);
-            BookVM = new BookViewModel(book);
+            var book = await Model.GetBookById(id);
+            var bookViewModel = new BookViewModel(book);
+            if(bookViewModel.Id != BookVM.Id)
+            {
+                BookVM.Id = bookViewModel.Id;
+                BookVM.Title = bookViewModel.Title;
+                BookVM.Author = bookViewModel.Author;
+                BookVM.CoverImage = bookViewModel.CoverImage;
+                BookVM.ReadingStatus = bookViewModel.ReadingStatus;
+                BookVM.Grade = bookViewModel.Grade;
+            }
         }
 
         public ManagerViewModel(ILibraryManager libMng)

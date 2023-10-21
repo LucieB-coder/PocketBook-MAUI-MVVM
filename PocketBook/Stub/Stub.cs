@@ -9,7 +9,16 @@ namespace Stub
 
         public async Task<IEnumerable<Book>> GetAllBooks() => await Task.Run(() => books.BookList);
 
-        public async Task<Book> GetBookById(int bookId) => await  Task.Run(()=> books.BookList.Where(book => book.Id == bookId).First());
+        public async Task<Book> GetBookById(int bookId) 
+        {
+            return await Task.Run(() => FindBookByID(bookId));
+        }
+
+        private Book FindBookByID(int bookId)
+        {
+            Book book = books.BookList.First(book=> book.Id == bookId);
+            return book;
+        }
 
     }
 }

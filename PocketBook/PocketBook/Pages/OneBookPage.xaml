@@ -4,7 +4,8 @@
              x:Class="PocketBook.Pages.OneBookPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="OneBookPage"
-             xmlns:controls="clr-namespace:PocketBook.Components">
+             xmlns:controls="clr-namespace:PocketBook.Components"
+             x:Name="root">
     <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="15,*,*,*,15"  RowDefinitions="60,30" Style="{StaticResource grayContainer}" Padding="0">
@@ -25,38 +26,10 @@
             
             <Grid RowDefinitions="*,*,*,*,*,*,*,*,*,*" Margin="5,0,0,0">
                 <Grid ColumnDefinitions="Auto,10,*" RowDefinitions="*,15,*">
-                    <controls:BookCover ImageSource="la_horde_du_contrevent" WidthRequest="105"/>
+                    <controls:BookCover ImageSource="{Binding Book.CoverImage, Source={x:Reference root}}" WidthRequest="105"/>
                     <VerticalStackLayout Grid.Column="2">
-                        <Label Text="La horde du contrevent" Style="{StaticResource boldLabel}"/>
-                        <Grid RowDefinitions="135,Auto" Padding="0"  VerticalOptions="End">
-                            <HorizontalStackLayout Grid.Row="1">
-                                <Image Source="star" HeightRequest="20" >
-                                    <Image.Behaviors>
-                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
-                                    </Image.Behaviors>
-                                </Image>
-                                <Image Source="star" HeightRequest="20" >
-                                    <Image.Behaviors>
-                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
-                                    </Image.Behaviors>
-                                </Image>
-                                <Image Source="star" HeightRequest="20" >
-                                    <Image.Behaviors>
-                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
-                                    </Image.Behaviors>
-                                </Image>
-                                <Image Source="star" HeightRequest="20" >
-                                    <Image.Behaviors>
-                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
-                                    </Image.Behaviors>
-                                </Image>
-                                <Image Source="star" HeightRequest="20" >
-                                    <Image.Behaviors>
-                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray100}" />
-                                    </Image.Behaviors>
-                                </Image>
-                            </HorizontalStackLayout>
-                        </Grid>
+                        <Label Text="{Binding Book.Title, Source={x:Reference root}}" Style="{StaticResource boldLabel}"/>
+                        <controls:Grades/>
                     </VerticalStackLayout>
                     <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
                 </Grid>
@@ -71,7 +44,7 @@
                 </Grid>
                 <Grid ColumnDefinitions="7,*" RowDefinitions="5,Auto,*,14,*" Grid.Row="2">
                     <Label Style="{StaticResource boldLabel}" Text="Auteur" Grid.Column="1" Grid.Row="1" />
-                    <Label FontSize="20" TextColor="{StaticResource Gray500}" Text="Alain Damasio" Grid.Column="1" Grid.Row="2" />
+                    <Label FontSize="20" TextColor="{StaticResource Gray500}" Text="{Binding Book.Author, Source={x:Reference root}}" Grid.Column="1" Grid.Row="2" />
                     <BoxView Grid.Row="4" Grid.Column="1"/>
                 </Grid>
                 <Grid ColumnDefinitions="7,*" RowDefinitions="5,*,*,14,*" Grid.Row="3">
@@ -81,7 +54,7 @@
                 </Grid>
                 <Grid ColumnDefinitions="7,*,10" RowDefinitions="5,*, *, *,14,*" Grid.Row="4">
                     <Label Style="{StaticResource boldLabel}" Text="Résumé" Grid.Column="1" Grid.Row="1" />
-                    <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="Un groupe d'élite blablablabalabalbalablablablblblblblblblblblblblblblbblblblblblblblblblblblblblblblblblblblblbllblblblblblblblblblblblblblbllblblbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbalbalablablablabalablablablabalbalbalbalalalalalalalalalalalala" Grid.Column="1" Grid.Row="2" />
+                    <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="{Binding Book.Description, Source={x:Reference root}}" Grid.Column="1" Grid.Row="2" />
                     <BoxView Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
                 </Grid>
                 <Grid ColumnDefinitions="7,Auto,*,Auto,14" RowDefinitions="5,*,*,*,*,12,*" Grid.Row="5">
@@ -97,7 +70,7 @@
                 <Grid ColumnDefinitions="7,Auto,*,Auto,14" RowDefinitions="5,*,*,*,*,12,*" Grid.Row="6">
                     <Label Style="{StaticResource boldLabel}" Text="Statut de letcure" Grid.Column="1" Grid.Row="1" />
                     <Label FontSize="15" TextColor="{StaticResource Gray500}" Text="Statut" Grid.Column="1" Grid.Row="2" />
-                    <Label Style="{StaticResource bookDetails}" Text="Non lu" Grid.Column="3" Grid.Row="2" />
+                    <Label Style="{StaticResource bookDetails}" Text="{Binding Book.ReadingStatus, Source={x:Reference root}}" Grid.Column="3" Grid.Row="2" />
                     <BoxView Grid.Row="6" Grid.ColumnSpan="5"/>
                 </Grid>
                 <Grid ColumnDefinitions="7,Auto,*,Auto,14" RowDefinitions="5,*,*,*,*,12,*" Grid.Row="7">
