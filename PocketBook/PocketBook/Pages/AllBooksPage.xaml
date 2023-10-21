@@ -28,7 +28,7 @@
                             <toolkit:IconTintColorBehavior TintColor="Red" />
                         </ImageButton.Behaviors>
                     </ImageButton>
-                    <ImageButton Source="arrow_up_and_down">
+                    <ImageButton Source="arrow_up_and_down" Command="{Binding ListManagerVM.ReverseListCommand}">
                         <ImageButton.Behaviors>
                             <toolkit:IconTintColorBehavior TintColor="Red" />
                         </ImageButton.Behaviors>

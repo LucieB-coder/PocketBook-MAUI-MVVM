@@ -11,11 +11,14 @@ public partial class AllBooksPage : ContentPage
     public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel(); 
 
     public LoadBooksNavigationViewModel LoadNavigationVM { get; set; }
+
+    public ListManagerViewModel ListManagerVM { get; set; }
     public ManagerViewModel ManagerVM { get; set; }
     public IEnumerable<BookGroupViewModel> Books { get; set; }
     public AllBooksPage(ManagerViewModel mngVM)
 	{
         LoadNavigationVM = new LoadBooksNavigationViewModel(mngVM);
+        ListManagerVM = new ListManagerViewModel(mngVM);
         ManagerVM = mngVM;
         Books = ManagerVM.Books;
         InitializeComponent();

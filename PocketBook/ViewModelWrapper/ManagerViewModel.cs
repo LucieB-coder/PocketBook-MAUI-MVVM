@@ -47,6 +47,16 @@ namespace ViewModelWrapper
             }
         }
 
+        public void ReverseList()
+        {
+            var reversedList=Books.Reverse().ToList();
+            Books.Clear();
+            foreach (var bookgroup in reversedList)
+            {
+                Books.Add(bookgroup);
+            }
+        }
+
         public ManagerViewModel(ILibraryManager libMng)
         {
             Model = new Manager(libMng);
