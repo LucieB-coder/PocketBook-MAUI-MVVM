@@ -18,11 +18,14 @@ namespace MyToolkit
             OnPropertyChanged(nameof(member));
         }
 
-        public void SetProperty<T>(ref T member, T value, Action<T> action)
-        {
-            if (EqualityComparer<T>.Default.Equals(member, value)) return;
-            action(member);
-            OnPropertyChanged(nameof(member));
+        public void SetProperty<T>(ref T member, T value, Action? action, [CallerMemberName] string propertyName = null)
+        {     
+            if(EqualityComparer<T>.Default.Equals(member,value)) return;     
+            if(action != null)     
+            {         
+                action();
+            }     
+            OnPropertyChanged(propertyName); 
         }
     }
 }
