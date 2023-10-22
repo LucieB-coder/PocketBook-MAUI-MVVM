@@ -19,6 +19,7 @@ namespace PocketBook.ViewModel
         public ICommand NavigateToBooksPageCommand { get; set; }
         public ICommand NavigateToBookDetailsCommand { get; set; }
         public ICommand NavigateToLendsPageCommand { get; set; }
+        public ICommand NavigateToFilterPageCommand { get; set; }
 
         public LoadBooksNavigationViewModel(ManagerViewModel mngVm)
         {
@@ -26,6 +27,7 @@ namespace PocketBook.ViewModel
             NavigateToBooksPageCommand = new Command<string>(NavigateToBooksPage);
             NavigateToBookDetailsCommand = new Command<int>(NavigateToBookDetails);
             NavigateToLendsPageCommand = new Command(NavigateToLendsPage);
+            NavigateToFilterPageCommand = new Command<string>(NavigateToFilterPage);
         }
 
         private async void NavigateToLendsPage()
@@ -54,12 +56,30 @@ namespace PocketBook.ViewModel
             await Shell.Current.GoToAsync("AllBooksPage");
         }
 
-
-
         private async void NavigateToBookDetails(int bookId)
         {
             ManagerVM.GetBookById(bookId);
             await Shell.Current.GoToAsync("OneBookPage");
+        }
+
+        private async void NavigateToFilterPage(string filter)
+        {
+            switch (filter)
+            {
+                case "author":
+                    ManagerVM.GetAuthorsList();
+                    break;
+                case "date":
+                    ManagerVM.GetDatesList();
+                    break;
+                case "grade":
+                    ManagerVM.GetGradesList();
+                    break;
+                default:
+                    ManagerVM.GetAllBooks();
+                    break;
+            }
+            await Shell.Current.GoToAsync("FilterPage");
         }
     }
 }

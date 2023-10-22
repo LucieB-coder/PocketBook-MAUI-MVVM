@@ -33,35 +33,35 @@
                         NumberOfElements=""/>
                     <controls:ListItem 
                         Command="{Binding LoaderNavigationVM.NavigateToLendsPageCommand, Source={x:Reference root}}"
-                        CommandParameter="LendBooksPage"
+                        CommandParameter=""
                         ImageSource="person_badge_clock_fill"
                         ItemName="En prêt"
                         NumberOfElements=""/>
                    
                     <controls:ListItem
-                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
-                        CommandParameter="AuthorFilterPage"
+                        Command="{Binding LoaderNavigationVM.NavigateToBooksPageCommand, Source={x:Reference root}}"
+                        CommandParameter=""
                         ImageSource="arrow_forward"
                         ItemName="A lire plus tard"
                         NumberOfElements=""/>
                    
                     <controls:ListItem 
-                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
-                        CommandParameter="AuthorFilterPage"
+                        Command="{Binding LoaderNavigationVM.NavigateToBooksPageCommand, Source={x:Reference root}}"
+                        CommandParameter=""
                         ImageSource="eyeglasses"
                         ItemName="Statut de lecture"
                         NumberOfElements=""/>
                   
                     <controls:ListItem 
-                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
-                        CommandParameter="AuthorFilterPage"
+                        Command="{Binding LoaderNavigationVM.NavigateToBooksPageCommand, Source={x:Reference root}}"
+                        CommandParameter=""
                         ImageSource="heart_fill"
                         ItemName="Favoris"
                         NumberOfElements=""/>
                    
                     <controls:ListItem
-                        Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"
-                        CommandParameter="AuthorFilterPage"
+                        Command="{Binding LoaderNavigationVM.NavigateToBooksPageCommand, Source={x:Reference root}}"
+                        CommandParameter=""
                         ImageSource="tag_fill"
                         ItemName="Etiquettes"
                         NumberOfElements=""/>
@@ -72,19 +72,19 @@
                 <BoxView Grid.Row="5"/>
                 <VerticalStackLayout Grid.Row="6" Style="{StaticResource grayContainer}">
                     <controls:ListItem 
-                        Command="{Binding ListManagerVM.GetFilterListCommand, Source={x:Reference root}}"
+                        Command="{Binding LoaderNavigationVM.NavigateToFilterPageCommand, Source={x:Reference root}}"
                         CommandParameter="author"
                         ImageSource="person_fill"
                         ItemName="Auteur"
                         NumberOfElements=""/>
                     <controls:ListItem 
-                        Command="{Binding ListManagerVM.GetFilterListCommand, Source={x:Reference root}}"
+                        Command="{Binding LoaderNavigationVM.NavigateToFilterPageCommand, Source={x:Reference root}}"
                         CommandParameter="date"
                         ImageSource="calendar"
                         ItemName="Date de publication"
                         NumberOfElements=""/>
                     <controls:ListItem 
-                        Command="{Binding ListManagerVM.GetFilterListCommand, Source={x:Reference root}}"
+                        Command="{Binding LoaderNavigationVM.NavigateToFilterPageCommand, Source={x:Reference root}}"
                         CommandParameter="grade"
                         ImageSource="sparkles"
                         ItemName="Note"
