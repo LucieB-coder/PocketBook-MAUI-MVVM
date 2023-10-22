@@ -38,22 +38,25 @@ namespace PocketBook.ViewModel
 
         private async void NavigateToBooksPage(string filter)
         {
-            switch (ManagerVM.Filter.Type)
+            if (string.IsNullOrEmpty(filter))
             {
-                case "":
-                    await ManagerVM.GetAllBooks();
-                    ManagerVM.LoadNumberOfPages();
-                    ManagerVM.LoadBooksByPage(1);
-                    break;
-                case "grade":
-                    await ManagerVM.GetBooksByGrade(filter);
-                    break;
-                case "date":
-                    await ManagerVM.GetBooksByDate(filter);
-                    break;
-                case "author":
-                    await ManagerVM.GetBooksByAuthor(filter);
-                    break;
+                await ManagerVM.GetAllBooks();
+                ManagerVM.LoadBooksByPage(1);
+            }
+            else
+            {
+                switch (ManagerVM.Filter.Type)
+                {
+                    case "grade":
+                        await ManagerVM.GetBooksByGrade(filter);
+                        break;
+                    case "date":
+                        await ManagerVM.GetBooksByDate(filter);
+                        break;
+                    case "author":
+                        await ManagerVM.GetBooksByAuthor(filter);
+                        break;
+                }
             }
             await Shell.Current.GoToAsync("AllBooksPage");
         }

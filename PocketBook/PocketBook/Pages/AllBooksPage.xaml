@@ -36,12 +36,22 @@
                 </HorizontalStackLayout>
             </Grid>
             <Grid ColumnDefinitions="*,Auto,Auto,Auto,*">
-                <ImageButton Source="chevron_right" Rotation="180" Command="{Binding ManagerVM.GoToPreviousPageCommand}"/>
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <DataTrigger TargetType="Grid" Binding="{Binding PageVM.NumberOfPages}" Value="1">
+                                <Setter Property="IsVisible" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <ImageButton Source="chevron_right" Rotation="180" Command="{Binding ManagerVM.GoToPreviousPageCommand}" />
                 <Label Grid.Column="1" Text="{Binding PageVM.CurrentPage}"/>
                 <Label Grid.Column="2" Text="/"/>
                 <Label Grid.Column="3" Text="{Binding PageVM.NumberOfPages}"/>
                 <ImageButton Grid.Column="4" Source="chevron_right" Command="{Binding ManagerVM.GoToNextPageCommand}"/>
             </Grid>
+            
             <Grid Padding="0">
                 <controls:AddBookPopup x:Name="popup" ZIndex="0"/>
 

@@ -36,6 +36,7 @@ namespace ViewModelWrapper
                 }
                 Books.Add(new BookGroupViewModel(author,booksViewModel));
             }
+            LoadNumberOfPages();
         }
 
         public async void LoadBooksByPage(int page)
@@ -116,6 +117,7 @@ namespace ViewModelWrapper
                 booksViewModel.Add(new BookViewModel(book));
             }
             Books.Add(new BookGroupViewModel(Filter.Content, booksViewModel));
+            LoadNumberOfPages();
         }
         public async Task GetBooksByDate(string date)
         {
@@ -129,6 +131,7 @@ namespace ViewModelWrapper
                 booksViewModel.Add(new BookViewModel(book));
             }
             Books.Add(new BookGroupViewModel(Filter.Content, booksViewModel));
+            LoadNumberOfPages();
         }
 
         public async Task GetBooksByAuthor(string author)
@@ -143,6 +146,7 @@ namespace ViewModelWrapper
                 booksViewModel.Add(new BookViewModel(book));
             }
             Books.Add(new BookGroupViewModel(Filter.Content, booksViewModel));
+            LoadNumberOfPages();
         }
 
         public void ReverseList(string list)
