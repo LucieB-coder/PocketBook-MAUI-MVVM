@@ -181,9 +181,9 @@ namespace ViewModelWrapper
         public ManagerViewModel(ILibraryManager libMng, IUserLibraryManager userLibMng)
         {
             Model = new Manager(libMng,userLibMng);
-            ReverseListCommand = new Command<string>(ReverseList);
-            GetLendsCommand = new Command(GetLends);
-            GetBorrowsCommand = new Command(GetBorrows);
+            ReverseListCommand = new RelayCommandObject(execute: async (o) => ReverseList((string)o), canExecute: (o) => true);
+            GetLendsCommand = new RelayCommandObject(execute: async (o) => GetLends(), canExecute: (o) => true);
+            GetBorrowsCommand = new RelayCommandObject(execute: async (o) => GetBorrows(), canExecute: (o) => true);
         }
 
     }

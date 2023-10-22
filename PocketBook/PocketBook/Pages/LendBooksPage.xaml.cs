@@ -10,15 +10,12 @@ public partial class LendBooksPage : ContentPage
     public NavigationViewModel NavigationViewModel { get; set; } = new NavigationViewModel();
     public ManagerViewModel ManagerVM { get; set; }
     public LoadBooksNavigationViewModel LoadBooksNavigationVM { get; set; }
-    public ListManagerViewModel ListManagerVM { get; set; }
-
     public IEnumerable<BookGroupViewModel> Lends { get; set; } 
 
     public LendBooksPage(ManagerViewModel mngVM)
     {
         ManagerVM = mngVM;
         LoadBooksNavigationVM = new LoadBooksNavigationViewModel(mngVM);
-        ListManagerVM = new ListManagerViewModel(mngVM);
         Lends = ManagerVM.Books;
         InitializeComponent();
         BindingContext = this;

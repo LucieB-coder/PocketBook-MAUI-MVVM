@@ -75,7 +75,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Stub\Stub.csproj" />
-	  <ProjectReference Include="..\ViewModelWrapper\ViewModelWrapper.csproj" />
+	  <ProjectReference Include="..\ViewModelWrap\ViewModelWrapper.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

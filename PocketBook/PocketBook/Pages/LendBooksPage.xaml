@@ -28,7 +28,7 @@
                             <toolkit:IconTintColorBehavior TintColor="Red" />
                         </ImageButton.Behaviors>
                     </ImageButton>
-                    <ImageButton Source="arrow_up_and_down" Command="{Binding ListManagerVM.ReverseListCommand}" CommandParameter="books">
+                    <ImageButton Source="arrow_up_and_down" Command="{Binding ManagerVM.ReverseListCommand}" CommandParameter="books">
                         <ImageButton.Behaviors>
                             <toolkit:IconTintColorBehavior TintColor="Red" />
                         </ImageButton.Behaviors>
@@ -39,8 +39,8 @@
             <VerticalStackLayout Spacing="10" >
                 <Border StrokeThickness="0" Style="{StaticResource grayContainer}" StrokeShape="RoundRectangle 7" Grid.Column="1"  WidthRequest="212">
                     <Grid Padding="4" ColumnDefinitions="Auto,4,Auto">
-                        <Button x:Name="LendsButton" Text="Prêts" Style="{StaticResource switchButton}" Clicked="OnLendsClicked" Command="{Binding ListManagerVM.GetLendsCommand}"/>
-                        <Button x:Name="RentsButton" Text="Emprunts" Style="{StaticResource grayContainer}" Clicked="OnBorrowsClicked" Grid.Column="2" Command="{Binding ListManagerVM.GetBorrowsCommand}"/>
+                        <Button x:Name="LendsButton" Text="Prêts" Style="{StaticResource switchButton}" Clicked="OnLendsClicked" Command="{Binding ManagerVM.GetLendsCommand}"/>
+                        <Button x:Name="RentsButton" Text="Emprunts" Style="{StaticResource grayContainer}" Clicked="OnBorrowsClicked" Grid.Column="2" Command="{Binding ManagerVM.GetBorrowsCommand}"/>
                     </Grid>
                 </Border>
                 <CollectionView x:Name="BookList" IsGrouped="True" ItemsSource="{Binding Lends}">
