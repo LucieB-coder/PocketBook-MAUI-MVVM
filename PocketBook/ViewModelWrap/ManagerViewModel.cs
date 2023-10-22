@@ -8,24 +8,21 @@ namespace ViewModelWrapper
     public class ManagerViewModel : BaseViewModelWrapper<ManagerViewModel>
     {
         public Manager Model { get; set; }
-        private int filter;
-        public int Filter { get => filter; set => filter = value; } 
         public ObservableCollection<FilterItemViewModel> FilteredItemList { get; set; } = new ObservableCollection<FilterItemViewModel>();
         public ObservableCollection<BookGroupViewModel> Books { get; set; } = new ObservableCollection<BookGroupViewModel>();
         public BookViewModel BookVM { get; set; } = new BookViewModel();
-        public int NumberOfPages { get => nbOfPages; set => nbOfPages = value; }
-        private int nbOfPages;
-        public int CurrentPage { get=>currentPage; set=>currentPage=value; }
-        private int currentPage;
+        public PageViewModel PageVM { get; set; } = new PageViewModel(1, 1);
+        public FilterViewModel Filter { get; set ; } = new FilterViewModel("","");
 
         public ICommand ReverseListCommand { get; set; }
         public ICommand GetLendsCommand { get; set; }
         public ICommand GetBorrowsCommand { get; set; }
-        public ICommand GoToPreviousPageCommand {  get; set; }
-        public ICommand GoToNextPageCommand { get; set; }
+        public RelayCommandObject GoToPreviousPageCommand {  get; set; }
+        public RelayCommandObject GoToNextPageCommand { get; set; }
 
         public async Task GetAllBooks()
         {
+            Filter.Content = "";
             var books = await Model.GetAllBooks();
             IEnumerable<string> authors = books.Select(book => book.Author).Distinct();
             Books.Clear();
@@ -43,7 +40,7 @@ namespace ViewModelWrapper
 
         public async void LoadBooksByPage(int page)
         {
-            CurrentPage = page;
+            PageVM.CurrentPage = page;
             Books.Clear();
             await GetAllBooks();
             for (int i = Books.Count() - 1; i > (page * 2) - 1; i--)
@@ -54,7 +51,8 @@ namespace ViewModelWrapper
             {
                 Books.RemoveAt(0);
             }
-            
+            GoToPreviousPageCommand.Refresh();
+            GoToNextPageCommand.Refresh();
         }
         public async void GetBookById(int id)
         {
@@ -108,6 +106,7 @@ namespace ViewModelWrapper
         }
         public async Task GetBooksByGrade(string grade)
         {
+            Filter.Content = grade;
             var books = await Model.GetAllBooks();
             IEnumerable<Book> booksWithGivenGrade = books.Where(book=>book.Grade == int.Parse(grade));
             Books.Clear();
@@ -116,10 +115,11 @@ namespace ViewModelWrapper
             { 
                 booksViewModel.Add(new BookViewModel(book));
             }
-            Books.Add(new BookGroupViewModel(grade, booksViewModel));
+            Books.Add(new BookGroupViewModel(Filter.Content, booksViewModel));
         }
         public async Task GetBooksByDate(string date)
         {
+            Filter.Content = date;
             var books = await Model.GetAllBooks();
             IEnumerable<Book> booksWithGivenDate = books.Where(book => book.ParutionYear == int.Parse(date));
             Books.Clear();
@@ -128,11 +128,12 @@ namespace ViewModelWrapper
             {
                 booksViewModel.Add(new BookViewModel(book));
             }
-            Books.Add(new BookGroupViewModel(date, booksViewModel));
+            Books.Add(new BookGroupViewModel(Filter.Content, booksViewModel));
         }
 
         public async Task GetBooksByAuthor(string author)
         {
+            Filter.Content = author;
             var books = await Model.GetAllBooks();
             IEnumerable<Book> booksWithGivenAuthor = books.Where(book => book.Author == author);
             Books.Clear();
@@ -141,7 +142,7 @@ namespace ViewModelWrapper
             {
                 booksViewModel.Add(new BookViewModel(book));
             }
-            Books.Add(new BookGroupViewModel(author, booksViewModel));
+            Books.Add(new BookGroupViewModel(Filter.Content, booksViewModel));
         }
 
         public void ReverseList(string list)
@@ -168,7 +169,7 @@ namespace ViewModelWrapper
         }
         public async void GetAuthorsList()
         {
-            Filter = 1;
+            Filter.Type = "author";
             var books = await Model.GetAllBooks();
             IEnumerable<string> authors = books.Select(book => book.Author).Distinct();
             FilteredItemList.Clear();
@@ -180,7 +181,7 @@ namespace ViewModelWrapper
         }
         public async void GetGradesList()
         {
-            Filter = 3;
+            Filter.Type = "grade";
             var books = await Model.GetAllBooks();
             IEnumerable<int> grades = books.Select(book => book.Grade).Distinct();
             FilteredItemList.Clear();
@@ -192,7 +193,7 @@ namespace ViewModelWrapper
         }
         public async void GetDatesList()
         {
-            Filter = 2;
+            Filter.Type = "date";
             var books = await Model.GetAllBooks();
             IEnumerable<int> dates = books.Select(book => book.ParutionYear).Distinct();
             FilteredItemList.Clear();
@@ -209,11 +210,11 @@ namespace ViewModelWrapper
             int count = books.Count();
             if (count % 2 == 0)
             {
-                NumberOfPages = count / 2;
+                PageVM.NumberOfPages = count / 2;
             }
             else
             {
-                NumberOfPages = (count / 2) + 1;
+                PageVM.NumberOfPages = (count / 2) + 1;
             }
         }
 
@@ -224,17 +225,17 @@ namespace ViewModelWrapper
             ReverseListCommand = new RelayCommandObject(execute: async (o) => ReverseList((string)o), canExecute: (o) => true);
             GetLendsCommand = new RelayCommandObject(execute: async (o) => GetLends(), canExecute: (o) => true);
             GetBorrowsCommand = new RelayCommandObject(execute: async (o) => GetBorrows(), canExecute: (o) => true);
-            GoToPreviousPageCommand = new RelayCommandObject(execute: async (o) => LoadBooksByPage((int)o), canExecute: (o) => 
+            GoToPreviousPageCommand = new RelayCommandObject(execute: async (o) => LoadBooksByPage(PageVM.CurrentPage - 1), canExecute: (o) => 
             {
-                if (CurrentPage == 1)
+                if (PageVM.CurrentPage == 1)
                 {
                     return false;
                 }
                 return true;
             });
-            GoToNextPageCommand = new RelayCommandObject(execute: async (o) => LoadBooksByPage((int)o), canExecute: (o) =>
+            GoToNextPageCommand = new RelayCommandObject(execute: async (o) => LoadBooksByPage(PageVM.CurrentPage + 1), canExecute: (o) =>
             {
-                if (CurrentPage == NumberOfPages)
+                if (PageVM.CurrentPage == PageVM.NumberOfPages)
                 {
                     return false;
                 }

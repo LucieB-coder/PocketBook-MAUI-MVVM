@@ -20,7 +20,7 @@
                     </Image>
                     <Label Text="Mes livres" Grid.Column="1" Style="{StaticResource headerText}" />
                 </HorizontalStackLayout>
-                <Label Style="{StaticResource boldLabel}" x:Name="page_title" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                <Label Style="{StaticResource boldLabel}" Text="{Binding PageTitle.Type, Source={x:Reference root}}" Grid.Column="1" HorizontalTextAlignment="Center"/>
                 <ImageButton Source="arrow_up_and_down" Grid.Column="2" HeightRequest="30" HorizontalOptions="End" Command="{Binding ManagerVM.ReverseListCommand, Source={x:Reference root}}" CommandParameter="filters">
                     <ImageButton.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="Red" />
