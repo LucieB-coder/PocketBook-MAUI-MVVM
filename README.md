@@ -3,6 +3,17 @@
 ### Lancer l'application
 Pour lancer le projet, il vous suffit de tirer le projet en local sur votre machine, de rentrer dans le dossier PocketBook et d'ouvrir la solution PocketBook.sln dans visual studio. Vous pourrez ensuite travailler avec votre IDE comme vous avez l'habitude de le faire.
 
+Le commit à prendre en compte pour la correction est le dernier commit sur la branch master ( le commit 20ed37636bc2b8a66a4044f058646911c5f14437).
+
+Je n'ai pas pu tester l'application sous iOS et n'ai pu travailler que sur des émulateurs/devices Android.
+
+## Fonctionnalités
+* Afficher la page avec tous les livres (avec une pagination pour faciliter la recherche d'un livre)
+* Afficher la page de détails d'un livre
+* Renverser l'ordre d'une liste de livres
+* Accéder aux pages de filtre Auteur, Date et Note et obtenir la liste de livres correspondante au filtre choisi
+* Voir les prêts et Emprunts en cours
+
 ## Naviguer dans l'application
 
 Voici comment accéder le plus simplement à toutes les pages et éléments de pages:
