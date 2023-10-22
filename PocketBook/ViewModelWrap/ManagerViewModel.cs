@@ -10,6 +10,7 @@ namespace ViewModelWrapper
         public Manager Model { get; set; }
         public ObservableCollection<FilterItemViewModel> FilteredItemList { get; set; } = new ObservableCollection<FilterItemViewModel>();
         public ObservableCollection<BookGroupViewModel> Books { get; set; } = new ObservableCollection<BookGroupViewModel>();
+        public BookGroupViewModel Favorites { get; set; } = new BookGroupViewModel("Favorites", new List<BookViewModel>());
         public BookViewModel BookVM { get; set; } = new BookViewModel();
         public PageViewModel PageVM { get; set; } = new PageViewModel(1, 1);
         public FilterViewModel Filter { get; set ; } = new FilterViewModel("","");
@@ -19,6 +20,7 @@ namespace ViewModelWrapper
         public ICommand GetBorrowsCommand { get; set; }
         public RelayCommandObject GoToPreviousPageCommand {  get; set; }
         public RelayCommandObject GoToNextPageCommand { get; set; }
+        public RelayCommandObject AddToFavoritesCommand { get; set; }
 
         public async Task GetAllBooks()
         {
@@ -222,7 +224,35 @@ namespace ViewModelWrapper
             }
         }
 
-        
+        public void AddBookToFavorites(BookViewModel book)
+        {                                                                                                                                            
+            Model.AddBookToFavorites(
+                new Book(book.Id, 
+                book.Title, 
+                book.Description, 
+                book.Author, 
+                book.CoverImage, 
+                book.ReadingStatus, 
+                book.Grade, 
+                book.AddedOnLibraryDate, 
+                book.NumberOfPages,
+                book.ISBN, 
+                book.PublishingHouse, 
+                book.ParutionYear));
+            Favorites.Items.Add(book);
+        }
+
+        public async void GetFavorites()
+        {
+            Favorites.Items.Clear();
+            IEnumerable<Book> favorites = await Model.GetFavorites();
+            foreach(Book book in favorites)
+            {
+                Favorites.Items.Add(new BookViewModel(book));
+            }
+            
+        }
+
         public ManagerViewModel(ILibraryManager libMng, IUserLibraryManager userLibMng)
         {
             Model = new Manager(libMng,userLibMng);
@@ -240,6 +270,14 @@ namespace ViewModelWrapper
             GoToNextPageCommand = new RelayCommandObject(execute: async (o) => LoadBooksByPage(PageVM.CurrentPage + 1), canExecute: (o) =>
             {
                 if (PageVM.CurrentPage == PageVM.NumberOfPages)
+                {
+                    return false;
+                }
+                return true;
+            });
+            AddToFavoritesCommand = new RelayCommandObject(execute: async (o) => AddBookToFavorites((BookViewModel)o), canExecute: (o) =>
+            {
+                if (Favorites.Items.Contains((BookViewModel)o))
                 {
                     return false;
                 }

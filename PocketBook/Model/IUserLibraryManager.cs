@@ -11,5 +11,8 @@ namespace Model
         
         Task<IEnumerable<Lend>> GetBorrows();
         Task<IEnumerable<Lend>> GetLends();
+        void AddBookToFavorites(Book book);
+        Task<IEnumerable<Book>> GetFavorites();
+
     }
 }

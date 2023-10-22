@@ -20,6 +20,7 @@ namespace PocketBook.ViewModel
         public ICommand NavigateToBookDetailsCommand { get; set; }
         public ICommand NavigateToLendsPageCommand { get; set; }
         public ICommand NavigateToFilterPageCommand { get; set; }
+        public ICommand NavigateToFavoritesPageCommand {  get; set; }
 
         public LoadBooksNavigationViewModel(ManagerViewModel mngVm)
         {
@@ -28,12 +29,21 @@ namespace PocketBook.ViewModel
             NavigateToBookDetailsCommand = new Command<int>(NavigateToBookDetails);
             NavigateToLendsPageCommand = new Command(NavigateToLendsPage);
             NavigateToFilterPageCommand = new Command<string>(NavigateToFilterPage);
+            NavigateToFavoritesPageCommand = new Command(NavigateToFavoritesPage);
         }
 
         private async void NavigateToLendsPage()
         {
             ManagerVM.GetLends();
             await Shell.Current.GoToAsync("LendBooksPage");
+        }
+
+        private async void NavigateToFavoritesPage()
+        {
+            ManagerVM.GetFavorites();
+            ManagerVM.Books.Clear();
+            ManagerVM.Books.Add(ManagerVM.Favorites);
+            await Shell.Current.GoToAsync("AllBooksPage");
         }
 
         private async void NavigateToBooksPage(string filter)

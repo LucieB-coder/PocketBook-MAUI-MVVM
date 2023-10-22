@@ -19,6 +19,21 @@
             => Id == other.Id;
 
         public Book() { }
+        public Book(int id, string title, string description, string author, string coverImage, string readingStatus, int grade, DateTime addedOnLibraryDate, double numberOfPages, string iSBN, string publishingHouse, int parutionYear)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            Author = author;
+            CoverImage = coverImage;
+            ReadingStatus = readingStatus;
+            Grade = grade;
+            AddedOnLibraryDate = addedOnLibraryDate;
+            NumberOfPages = numberOfPages;
+            ISBN = iSBN;
+            PublishingHouse = publishingHouse;
+            ParutionYear = parutionYear;
+        }
     }
 }
 

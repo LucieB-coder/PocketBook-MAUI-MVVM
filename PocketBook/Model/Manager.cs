@@ -36,6 +36,12 @@ namespace Model
         public Task<IEnumerable<Lend>> GetBorrows()
             => userLibraryManager.GetBorrows();
 
+        public void AddBookToFavorites(Book book)
+            =>userLibraryManager.AddBookToFavorites(book);
+
+        public Task<IEnumerable<Book>> GetFavorites()
+            => userLibraryManager.GetFavorites();
+
         #endregion
 
         #region Constructor

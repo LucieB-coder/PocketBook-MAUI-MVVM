@@ -10,5 +10,6 @@ namespace Model
     {
         Task<Book> GetBookById(int id);
         Task<IEnumerable<Book>> GetAllBooks();
+        
     }
 }

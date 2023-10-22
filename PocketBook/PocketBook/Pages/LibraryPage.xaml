@@ -53,7 +53,7 @@
                         NumberOfElements=""/>
                   
                     <controls:ListItem 
-                        Command="{Binding LoaderNavigationVM.NavigateToBooksPageCommand, Source={x:Reference root}}"
+                        Command="{Binding LoaderNavigationVM.NavigateToFavoritesPageCommand, Source={x:Reference root}}"
                         CommandParameter=""
                         ImageSource="heart_fill"
                         ItemName="Favoris"

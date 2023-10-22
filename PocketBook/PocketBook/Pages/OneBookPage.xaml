@@ -82,11 +82,12 @@
                 <Grid ColumnDefinitions="7,*" RowDefinitions="100,*" Grid.Row="8">
                     <BoxView Grid.Row="1" Grid.Column="1"/>
                 </Grid>
-                <Grid RowDefinitions="*,*,*,*" Grid.Row="9" >
+                <Grid RowDefinitions="*,*,*,*,*" Grid.Row="9" >
                     <controls:BookDetailsRedButton ImageSource="folder" ItemName="Déplacer le livre" />
-                    <controls:BookDetailsRedButton ImageSource="plus_circle" ItemName="Ajouter à la liste A lire plus tard" Grid.Row="1" />
-                    <controls:BookDetailsRedButton ImageSource="eyeglasses" ItemName="Changer le statut de lecture" Grid.Row="2" />
-                    <controls:BookDetailsRedButton ImageSource="person" ItemName="Prêter le livre" Grid.Row="3" />
+                    <controls:BookDetailsRedButton ImageSource="plus_circle" ItemName="Ajouter à la liste A lire plus tard" Grid.Row="1" Command="{Binding ManagerVM.AddToFavoritesCommand, Source={x:Reference root}}" CommandParameter="{Binding Book, Source={x:Reference root}}"/>
+                    <controls:BookDetailsRedButton ImageSource="eyeglasses" ItemName="Changer le statut de lecture" Grid.Row="2" Command="{Binding ManagerVM.AddToFavoritesCommand, Source={x:Reference root}}" CommandParameter="{Binding Book, Source={x:Reference root}}"/>
+                    <controls:BookDetailsRedButton ImageSource="heart_fill" ItemName="Ajouter aux favoris" Grid.Row="3" Command="{Binding ManagerVM.AddToFavoritesCommand, Source={x:Reference root}}" CommandParameter="{Binding Book, Source={x:Reference root}}"/>
+                    <controls:BookDetailsRedButton ImageSource="person" ItemName="Prêter le livre" Grid.Row="4" Command="{Binding ManagerVM.AddToFavoritesCommand, Source={x:Reference root}}" CommandParameter="{Binding Book, Source={x:Reference root}}"/>
                 </Grid>
             </Grid>
         </VerticalStackLayout>
