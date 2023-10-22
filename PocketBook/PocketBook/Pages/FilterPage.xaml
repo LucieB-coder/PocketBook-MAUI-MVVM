@@ -43,7 +43,7 @@
                     <Button Text="Annuler" BackgroundColor="Transparent" TextColor="{StaticResource Gray200}" Grid.Column="2" HorizontalOptions="End" />
                 </Grid>
             </Grid>
-            <CollectionView Grid.Row="3" x:Name="BookList" ItemsSource="{Binding Authors, Source={x:Reference root}}">
+            <CollectionView Grid.Row="3" x:Name="BookList" ItemsSource="{Binding Filters, Source={x:Reference root}}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="0">

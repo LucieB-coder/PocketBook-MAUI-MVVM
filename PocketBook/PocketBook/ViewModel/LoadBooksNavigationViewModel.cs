@@ -41,20 +41,25 @@ namespace PocketBook.ViewModel
             switch (filter.Length)
             {
                 case 0:
-                    ManagerVM.GetAllBooks();
+                    await ManagerVM.GetAllBooks();
+                    ManagerVM.LoadNumberOfPages();
+                    ManagerVM.LoadBooksByPage(1);
                     break;
                 case 1:
-                    ManagerVM.GetBooksByGrade(filter);
+                    await ManagerVM.GetBooksByGrade(filter);
                     break;
                 case 4:
-                    ManagerVM.GetBooksByDate(filter);
+                    await ManagerVM.GetBooksByDate(filter);
                     break;
                 default:
-                    ManagerVM.GetBooksByAuthor(filter);
+                    await ManagerVM.GetBooksByAuthor(filter);
                     break;
             }
+            ManagerVM.CurrentPage = 1;
             await Shell.Current.GoToAsync("AllBooksPage");
         }
+
+
 
         private async void NavigateToBookDetails(int bookId)
         {
