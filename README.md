@@ -1,10 +1,11 @@
 # PocketBook
 
-Bonjour.
+### Lancer l'application
+Pour lancer le projet, il vous suffit de tirer le projet en local sur votre machine, de rentrer dans le dossier PocketBook et d'ouvrir la solution PocketBook.sln dans visual studio. Vous pourrez ensuite travailler avec votre IDE comme vous avez l'habitude de le faire.
 
-Voici mon travail sur les visuels de ce projet.
+## Naviguer dans l'application
 
-Si vous vous le demandez, voici comment accéder le plus simplement à toutes les pages et éléments de pages que j'ai réalisé:
+Voici comment accéder le plus simplement à toutes les pages et éléments de pages:
 
 * **Page bibliothèque :** Page d'accueil
 * **Page de liste des livres :** clic sur le premier item dans la liste "Mes livres" de la page d'accueil (appelé "Tous") ou sur l'onglet "My Lists" de la Tabbar
@@ -15,4 +16,13 @@ Si vous vous le demandez, voici comment accéder le plus simplement à toutes le
 * **Page de filtre par date :** clic sur le deuxième item dans la liste "Filtres" de la page d'accueil (appelé "Date de publication")
 * **Page de filtre par note :** clic sur le troisième item dans la liste "Filtres" de la page d'accueil (appelé "Note")
 
-> Pour faciliter la correction, vous trouverez dans l'onglet tickets tous les détails que je n'ai pas réussi à corriger ou les choses que je n'ai pas eu le temps de faire.
+> Pour les problèmes connus du TP 1, je vous invite à consulter les tickets non-fermés dans la partie Tickets du dépôt
+
+## Problèmes connus TP 2:
+
+* Sur la page de filtre, le titre de la page ne s'actualise pas.
+* L'affichage des étoiles correspondantes à la note d'un livre ne correspondent pas à la vraie note du livre.
+* Après avoir accédé à la page de liste de livre depuis une page de filtre, lorsque l'on clique sur retour, on retombe sur la page de bibliothèque et non sur la page de filtre.
+* Les nombres sur la page de bibliothèque ne fonctionnent pas.
+* La façon dont est implémentée la gestion du filtre dans la VM applicative *LoadBooksNavigationViewModel* peut être améliorée.
+* L'affichage de la popup apparaissant lorsque l'on clique sur le **+** est contrôlé par Z-Index et non par une commande.
