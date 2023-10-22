@@ -30,13 +30,13 @@
                         CommandParameter=""
                         ImageSource="tray_fill"
                         ItemName="Tous"
-                        NumberOfElements="42"/>
+                        NumberOfElements=""/>
                     <controls:ListItem 
                         Command="{Binding LoaderNavigationVM.NavigateToLendsPageCommand, Source={x:Reference root}}"
                         CommandParameter="LendBooksPage"
                         ImageSource="person_badge_clock_fill"
                         ItemName="En prêt"
-                        NumberOfElements="2"/>
+                        NumberOfElements=""/>
                    
                     <controls:ListItem
                         Command="{Binding NavigationVM.NavigateCommand, Source={x:Reference root}}"

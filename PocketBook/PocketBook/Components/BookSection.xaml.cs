@@ -14,6 +14,8 @@ public partial class BookSection : ContentView
         BindableProperty.Create(nameof(AuthorName), typeof(string), typeof(BookSection), string.Empty);
     public static readonly BindableProperty ReadingStatusProperty = 
         BindableProperty.Create(nameof(ReadingStatus), typeof(string), typeof(BookSection), string.Empty);
+    public static readonly BindableProperty GradeProperty =
+        BindableProperty.Create(nameof(Grade), typeof(int), typeof(BookSection), null);
     public static readonly BindableProperty CommandProperty =
         BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(BookSection), null);
     public static readonly BindableProperty CommandParameterProperty =
@@ -40,6 +42,12 @@ public partial class BookSection : ContentView
     {
         get => (string)GetValue(BookSection.ReadingStatusProperty);
         set => SetValue(BookSection.ReadingStatusProperty, value);
+    }
+
+    public int Grade
+    {
+        get => (int)GetValue(BookSection.GradeProperty);
+        set => SetValue(BookSection.GradeProperty, value);
     }
 
     public ICommand Command

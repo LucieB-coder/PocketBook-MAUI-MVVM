@@ -14,7 +14,7 @@
             <Label Text="{Binding Title, Source={x:Reference root}}" Style="{StaticResource boldLabel}"/>
             <Label Grid.Row="1" Text="{Binding AuthorName, Source={x:Reference root}}" />
             <Label Grid.Row="2" Text="{Binding ReadingStatus, Source={x:Reference root}}" TextColor="Gray"/>
-            <controls:Grades Grid.Row="3" Margin="0,20,0,0"/>
+            <controls:Grades Grid.Row="3" Grade="{Binding Grade, Source={x:Reference root}}" Margin="0,20,0,0"/>
         </Grid>
         <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
     </Grid>

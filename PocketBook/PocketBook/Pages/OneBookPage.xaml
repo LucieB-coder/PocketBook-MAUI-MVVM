@@ -29,7 +29,7 @@
                     <controls:BookCover ImageSource="{Binding Book.CoverImage, Source={x:Reference root}}" WidthRequest="105"/>
                     <VerticalStackLayout Grid.Column="2">
                         <Label Text="{Binding Book.Title, Source={x:Reference root}}" Style="{StaticResource boldLabel}"/>
-                        <controls:Grades/>
+                        <controls:Grades Grade="{Binding Book.Grade, Source={x:Reference root}}"/>
                     </VerticalStackLayout>
                     <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
                 </Grid>

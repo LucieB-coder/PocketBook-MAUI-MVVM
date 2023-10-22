@@ -54,12 +54,13 @@
                         <DataTemplate>
                             <Grid Padding="0">
                                 <controls:BookSection 
-                                                    CoverImage="{Binding CoverImage}" 
-                                                    Title="{Binding Title}" 
-                                                    AuthorName="{Binding Author}" 
-                                                    ReadingStatus="{Binding ReadingStatus}" 
-                                                    Command="{Binding Path=LoadNavigationVM.NavigateToBookDetailsCommand, Source={x:Reference root}}" 
-                                                    CommandParameter="{Binding Id}"/>
+                                    CoverImage="{Binding CoverImage}" 
+                                    Title="{Binding Title}" 
+                                    AuthorName="{Binding Author}" 
+                                    ReadingStatus="{Binding ReadingStatus}"
+                                    Grade="{Binding Grade}"
+                                    Command="{Binding Path=LoadNavigationVM.NavigateToBookDetailsCommand, Source={x:Reference root}}" 
+                                    CommandParameter="{Binding Id}"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
