@@ -20,9 +20,8 @@ Voici comment accéder le plus simplement à toutes les pages et éléments de p
 
 ## Problèmes connus TP 2:
 
-* Sur la page de filtre, le titre de la page ne s'actualise pas.
 * L'affichage des étoiles correspondantes à la note d'un livre ne correspondent pas à la vraie note du livre.
 * Après avoir accédé à la page de liste de livre depuis une page de filtre, lorsque l'on clique sur retour, on retombe sur la page de bibliothèque et non sur la page de filtre.
 * Les nombres sur la page de bibliothèque ne fonctionnent pas.
-* La façon dont est implémentée la gestion du filtre dans la VM applicative *LoadBooksNavigationViewModel* peut être améliorée.
 * L'affichage de la popup apparaissant lorsque l'on clique sur le **+** est contrôlé par Z-Index et non par une commande.
+* Les propriété **GoToPreviousPage** et **GoToNextPage** sont typée comme RelayCommandObject et non comme ICommand
