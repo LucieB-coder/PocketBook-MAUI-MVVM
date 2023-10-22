@@ -36,3 +36,4 @@ Voici comment accéder le plus simplement à toutes les pages et éléments de p
 * Les nombres sur la page de bibliothèque ne fonctionnent pas.
 * L'affichage de la popup apparaissant lorsque l'on clique sur le **+** est contrôlé par Z-Index et non par une commande.
 * Les propriété **GoToPreviousPage** et **GoToNextPage** sont typée comme RelayCommandObject et non comme ICommand
+* J'ai tenté de fair une fonctionnalité **AddToFavorites** sans succès car la classe BookGroupViewModel ne peut pas hériter à la fois de BaseViewModel et List. Je suis donc bloquée, le livre est ajouté à la liste des favoris mais celle-ci n'est pas actualisée dans l'affichage
