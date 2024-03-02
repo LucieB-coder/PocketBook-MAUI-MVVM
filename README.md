@@ -29,7 +29,7 @@ Voici comment accéder le plus simplement à toutes les pages et éléments de p
 
 > Pour les problèmes connus du TP 1, je vous invite à consulter les tickets non-fermés dans la partie Tickets du dépôt
 
-## Problèmes connus TP 2:
+## Problèmes connus:
 
 * L'affichage des étoiles correspondantes à la note d'un livre ne correspondent pas à la vraie note du livre.
 * Après avoir accédé à la page de liste de livre depuis une page de filtre, lorsque l'on clique sur retour, on retombe sur la page de bibliothèque et non sur la page de filtre.
